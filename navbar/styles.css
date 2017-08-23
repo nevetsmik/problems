@@ -1,0 +1,36 @@
+.main {
+  margin: 0 auto;
+  width: 900px;
+}
+
+.navbar {
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#back, #forward {
+  margin: 20px 10px;
+  width: 50px;
+}
+
+#address-bar {
+  margin-right: 30px;
+  width: 650px;
+}
+
+.stacks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  height: 500px;
+  width: 900px;
+  background-color: #D6E9FE;
+}
+
+#backStack, #currentStack, #forwardStack {
+  border: 1px solid #fff;
+  flex: 1;
+  text-align: center;
+}

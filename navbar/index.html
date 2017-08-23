@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src = "script.js" type = "text/javascript"/></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Navbar</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <button onclick="back()" id="back"><</button>
+        <button onclick="forward()" name="forward" id="forward">></button>
+        <input type="text" id="address-bar" name="address-bar" placeholder="http://" value="http://">
+        <button onclick="go()" id="go">Go</button>
+      </div>
+      <div class="stacks">
+        <div id="backStack">
+          <h1>Back Stack</h1>
+        </div>
+        <div id="currentStack">
+          <h1>Current Stack</h1>
+        </div>
+        <div id="forwardStack">
+          <h1>Forward Stack</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
