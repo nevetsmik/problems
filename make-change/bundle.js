@@ -82,7 +82,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -91,7 +90,6 @@ const fn2 = function(){};
 
 export { fn1, fn2 };
 **********/
-
 
 /*********
 Export functions as you write them
@@ -102,38 +100,98 @@ export const fn2 = function(){};
 
 // (change, [25, 10, 5, 1])
 // 76, 25, 25, 25, 1
+const makeChange = (change, coins, result = []) => {
+  if (change === 0) {
+    return result;
+  }
 
-// export const makeChange = (change, coins, result = []) => {
-//   if (change === 0) { return result; }
-//
-//   let remainder = Math.floor(change / coins[0]);
-//   if (remainder > 0) {
-//     change = change - coins[0];
-//     result.push(coins[0]);
-//     return makeChange(change, coins, result);
-//   } else {
-//     return makeChange(change, coins.slice(1), result);
-//   }
-// };
+  let remainder = Math.floor(change / coins[0]);
+  if (remainder > 0) {
+    change = change - coins[0];
+    result.push(coins[0]);
+    return makeChange(change, coins, result);
+  } else {
+    return makeChange(change, coins.slice(1), result);
+  }
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = makeChange;
 
-const makeChange = (amount, coins) => {
-  if (amount === 0) { return 1; }
+
+const makeBestChange = (amount, coins) => {
+  if (amount === 0) {
+    return [];
+  }
 
   let result;
 
   for (let i = 0; i < coins.length; i++) {
     if (amount >= coins[i]) {
-      let changeForRest = makeChange(amount - coins[i], coins.slice(i));
+      let changeForRest = makeBestChange(amount - coins[i], coins.slice(i));
       let change = [coins[i]].concat(changeForRest);
       if (result === undefined || change.length < result.length) {
         result = change;
       }
     }
   }
+  return result;
+};
+/* harmony export (immutable) */ __webpack_exports__["b"] = makeBestChange;
+
+
+// Counts the number of ways to make change for an amount with coins
+const coinSums = (amount, coins) => {
+  let count = 0;
+
+  if (amount === 0) {
+    return 1;
+  }
+
+  for (let i = 0; i < coins.length; i++) {
+    if (amount >= coins[i]) {
+      count += coinSums(amount - coins[i], coins.slice(i));
+    }
+  }
+
+  return count;
+};
+/* harmony export (immutable) */ __webpack_exports__["c"] = coinSums;
+
+
+/*
+(7, [3, 2, 1], [], [])
+  (4, [3, 2, 1], [3], [])
+    (1, [3, 2, 1], [3, 3], [])
+    // 1, [3, 2, 1]; 1, [3, 2, 1]; 1, [3, 2, 1], i.e., will loop three times until until the amount >= denoms[i]
+      (0, [1], [3, 3, 1], [])
+      (0, [1], [3, 3], [[3, 3, 1]])
+    (1, [3, 2, 1], [3], [[3, 3, 1]])
+  (4, [3, 2, 1], [3], [[3, 3, 1]])
+    (2, [3, 2, 1], [3, 2], [[3, 3, 1]])
+      (0, [2, 1], [3, 2, 2], [[3, 3, 1]])
+      (0, [2, 1], [3, 2], [[3, 3, 1], [3, 2, 2]])
+    (2, [3, 2, 1], [3, 2], [[3, 3, 1], [3, 2, 2]])
+      (1, [3, 2, 1], [3, 2, 1], [[3, 3, 1], [3, 2, 2]])
+        (0, [3, 2, 1], [3, 2, 1, 1], [[3, 3, 1], [3, 2, 2]])
+        (0, [3, 2, 1], [3, 2, 1], [[3, 3, 1], [3, 2, 2], [3, 2, 1, 1]])
+      (1, [3, 2, 1], [3, 2], [[3, 3, 1], [3, 2, 2], [3, 2, 1, 1]])
+*/
+
+const coins = (amount, denoms, currentCombo = [], result = []) => {
+  if (amount === 0) {
+    result.push(currentCombo.slice());
+  }
+
+  for (let i = 0; i < denoms.length; i++) {
+    if (amount >= denoms[i]) {
+      currentCombo.push(denoms[i]);
+      coins(amount - denoms[i], denoms.slice(i), currentCombo, result);
+      currentCombo.pop();
+    }
+  }
 
   return result;
 };
-/* harmony export (immutable) */ __webpack_exports__["a"] = makeChange;
+/* harmony export (immutable) */ __webpack_exports__["d"] = coins;
 
 
 
@@ -160,6 +218,9 @@ import { fn1, fn2 } from './scratch';
 
 
 
+
+
+
 /*********
 Set global window so we can manipulate in the browser
 
@@ -167,6 +228,9 @@ window.scratch = scratch;
 *********/
 
 window.makeChange = __WEBPACK_IMPORTED_MODULE_0__makeChange__["a" /* makeChange */];
+window.makeBestChange = __WEBPACK_IMPORTED_MODULE_0__makeChange__["b" /* makeBestChange */];
+window.coinSums = __WEBPACK_IMPORTED_MODULE_0__makeChange__["c" /* coinSums */];
+window.coins = __WEBPACK_IMPORTED_MODULE_0__makeChange__["d" /* coins */];
 
 
 /***/ })

@@ -7,7 +7,11 @@ const main = function() {
     let lines = data.split('\n');
     let firstLine = lines[0].split(' ').map(Number);
     let array = lines[1].split(' ').map(Number);
-    increasingDecreasingSubrangeDifference(array, firstLine[1]);
+    if (array.slice(-1)[0] === " ") {
+      array = lines[1].split(' ').map(Number).slice(0, -1);
+    }
+    console.log(array.length);
+    // increasingDecreasingSubrangeDifference(array, firstLine[1]);
     // let answer = increasingDecreasingSubrangeDifference(array, firstLine[1]);
     // console.log(answer.join('\n'));
   });
@@ -41,6 +45,12 @@ const increasingDecreasingSubrangeDifference = (array, windowSize) => {
       } else if (currTrendDifference < 0) {
         decreasing += 1;
         increasingRepeat = 0;
+      } else if (currTrendDifference === 0) {
+        if (prevTrend === 'increasing') {
+            increasing += 1;
+        } else if (prevTrend === 'decreasing') {
+            decreasing += 1;
+        }
       }
 
       // If the current pair and the previous pair have the same trend, then
@@ -59,12 +69,12 @@ const increasingDecreasingSubrangeDifference = (array, windowSize) => {
       if (currTrendDifference < 0) { prevTrend = "decreasing"; }
     }
 
-    // result.push(increasing - decreasing);
-    console.log(increasing - decreasing);
+    result.push(increasing - decreasing);
+    // console.log(increasing - decreasing);
   }
-  
-  // return result;
-  return;
+
+  return result;
+  // return;
 };
 
 main();

@@ -82,7 +82,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -92,7 +91,6 @@ const fn2 = function(){};
 export { fn1, fn2 };
 **********/
 
-
 /*********
 Export functions as you write them
 
@@ -101,100 +99,82 @@ export const fn2 = function(){};
 **********/
 
 // Definition for singly-linked list:
-const ListNode = function(x) {
-  this.value = x;
-  this.next = null;
-};
 
-const removeKFromList = function (l, k) {
-  if (l === null) { return []; }
-  let prev = null;
-  let itr = l;
+// const mixEvents = obj => {
+//   let events = {};
+//
+//   obj.on = function(eventName, cb) {
+//     events[eventName] = events[eventName] || [];
+//     events[eventName].push(cb);
+//   };
+//
+//   obj.trigger = function(event, ...params) {
+//     events[event].forEach(cb => cb.apply(null, params));
+//   };
+//
+//   return obj;
+// };
 
-  while (itr !== null) {
-    if (itr.value === k) {
-      if (itr.next) {
-        itr.value = itr.next.value;
-        itr.next = itr.next.next;
-      } else {
-        if (prev) {
-          prev.next = null;
-        }
-        itr = itr.next;
-      }
-    } else {
-      prev = itr;
-      itr = itr.next;
-    }
+const exists = (tree, value) => {
+  if (tree === null) {
+    return false;
   }
 
-  if (l.value === k) { return null; }
-  return l;
-};
-/* harmony export (immutable) */ __webpack_exports__["c"] = removeKFromList;
-
-
-const isListPalindrome = function(l) {
-    if (l === null) { return false; }
-    let count = 0;
-    let itr = l;
-    while (itr !== null) {
-        count += 1;
-        itr = itr.next;
-    }
-
-    if (count === 1) { return true; }
-
-    let midpoint;
-    if (count % 2 === 0) {
-        midpoint = count / 2;
-    } else {
-        midpoint = Math.floor(count / 2) + 1;
-    }
-
-    let secondHalf = l;
-    count = 0;
-    while (count < midpoint) {
-        secondHalf = secondHalf.next;
-        count++;
-    }
-
-    let first = l;
-    let last = reverse(secondHalf);
-
-    while (first !== null && last !== null) {
-      if (first.value !== last.value) {
-        return false;
-      }
-      first = first.next;
-      last = last.next;
-    }
-
+  if (tree.value === value) {
     return true;
-};
-/* harmony export (immutable) */ __webpack_exports__["b"] = isListPalindrome;
-
-
-const reverse = function (node) {
-  if (node === null) { return null; }
-  let prev = null;
-  let current = node;
-  let next = current;
-
-  while (current !== null) {
-    next = current.next;
-    current.next = prev;
-    prev = current;
-    current = next;
   }
 
-  return prev;
+  return exists(tree.left, value) || exists(tree.right, value);
 };
-/* unused harmony export reverse */
+/* harmony export (immutable) */ __webpack_exports__["c"] = exists;
 
 
+const findPath = (tree, target, path = []) => {
+  if (target === tree.value) {
+    path.push(tree);
+    return path;
+  }
 
-/* harmony default export */ __webpack_exports__["a"] = ListNode;
+  if (tree.left) {
+    let result = findPath(tree.left, target, path);
+    if (result) {
+      path.push(tree);
+      return path;
+    }
+  }
+
+  if (tree.right) {
+    let result = findPath(tree.right, target, path);
+    if (result) {
+      path.push(tree);
+      return path;
+    }
+  }
+
+  return null;
+};
+/* harmony export (immutable) */ __webpack_exports__["b"] = findPath;
+
+
+const Node = function(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+};
+
+Node.prototype.insertLeft = function(value) {
+  let newNode = new Node(value);
+  this.left = newNode;
+  return newNode;
+};
+
+Node.prototype.insertRight = function(value) {
+  let newNode = new Node(value);
+  this.right = newNode;
+  return newNode;
+};
+
+/* harmony default export */ __webpack_exports__["a"] = Node;
 
 
 /***/ }),
@@ -218,7 +198,6 @@ import { fn1, fn2 } from './scratch';
 
 // import { binarySearch } from './scratch';
 
-
 /*********
 Set global window so we can manipulate in the browser
 
@@ -228,36 +207,23 @@ window.scratch = scratch;
 
 
 
-// [1,2,3,3,2,1]
-//[1, 1000000000, -1000000000, -1000000000, 1000000000, 1]
 
-let l = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](1);
-let l2 = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](2);
-let l3 = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](3);
-let l4 = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](3);
-let l5 = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](2);
-let l6 = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](1);
-l.next = l2;
-l2.next = l3;
-l3.next = l4;
-l4.next = l5;
-l5.next = l6;
+let root = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](6);
+let branch1 = root.insertLeft(3);
+let branch2 = root.insertRight(9);
+let branch3 = branch1.insertLeft(2);
+let branch4 = branch1.insertRight(5);
+let branch5 = branch2.insertLeft(8);
+let branch6 = branch2.insertRight(11);
+let branch7 = branch3.insertLeft(1);
+let branch8 = branch4.insertLeft(4);
+let branch9 = branch5.insertLeft(7);
+let branch10 = branch6.insertLeft(10);
 
-window.l = l;
-window.isListPalindrome = __WEBPACK_IMPORTED_MODULE_0__scratch__["b" /* isListPalindrome */];
-window.removeKFromList = __WEBPACK_IMPORTED_MODULE_0__scratch__["c" /* removeKFromList */];
-
-// let root = Node(6);
-// let branch1 = root.insertLeft(3);
-// let branch2 = root.insertRight(9);
-// let branch3 = branch1.insertLeft(2);
-// let branch4 = branch1.insertRight(5);
-// let branch5 = branch2.insertLeft(8);
-// let branch6 = branch2.insertRight(11);
-// let branch7 = branch3.insertLeft(1);
-// let branch8 = branch4.insertLeft(4);
-// let branch9 = branch5.insertLeft(7);
-// let branch10 = branch6.insertLeft(10);
+window.findPath = __WEBPACK_IMPORTED_MODULE_0__scratch__["b" /* findPath */];
+window.Node = __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */];
+window.root = root;
+window.exists = __WEBPACK_IMPORTED_MODULE_0__scratch__["c" /* exists */];
 
 
 /***/ })

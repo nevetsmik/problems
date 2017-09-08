@@ -9,7 +9,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -19,7 +18,6 @@ const fn2 = function(){};
 export { fn1, fn2 };
 **********/
 
-
 /*********
 Export functions as you write them
 
@@ -27,7 +25,15 @@ export const fn1 = function(){};
 export const fn2 = function(){};
 **********/
 
-export const subsets = (array) => {
+function sumSubsets(arr, num) {
+  let result = [];
+  let allSubsets = subsets(arr);
+  return allSubsets.filter(
+    subset => subset.reduce((accum, prev) => accum + prev, 0) === num
+  );
+}
+
+export const subsets = array => {
   // array = [1, 2, 3]
   // 2^3 = 8 number of set subsets for the array
   // Assume you have already have subsets of [1, 2], so
@@ -44,12 +50,12 @@ export const subsets = (array) => {
   const withoutFirst = subsets(array.slice(1));
   // remember, we don't want to mutate the subsets without the first element
   // hence, the 'concat'
-  const withFirst = withoutFirst.map(sub => [first].concat(sub) );
+  const withFirst = withoutFirst.map(sub => [first].concat(sub));
 
   return withoutFirst.concat(withFirst);
 };
 
-export const permutations = (array) => {
+export const permutations = array => {
   // array = [1, 2, 3]
   // 3! = 6 permutations
   // Assume you have permutations for [1, 2], so [1, 2] and [2, 1]. Now
@@ -57,14 +63,16 @@ export const permutations = (array) => {
   // [3, 1, 2], [1, 3, 2], [1, 2, 3]
   // [3, 2, 1], [2, 3, 1], [2, 1, 3]
 
-  if (array.length) { return [array]; }
+  if (array.length) {
+    return [array];
+  }
 
   let first = array[0];
   let perms = permutations(array.slice(1));
 
   let totalPerms = [];
 
-  perms.forEach((perm) => {
+  perms.forEach(perm => {
     perm.forEach((ltr, i) => {
       let newPerm = [perm.slice(0, i).concat(first).concat(perm.slice(i))];
       totalPerms.push(newPerm);
