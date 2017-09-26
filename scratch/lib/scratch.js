@@ -42,59 +42,23 @@ export const fn2 = function(){};
 //   return obj;
 // };
 
-export const exists = (tree, value) => {
-  if (tree === null) {
-    return false;
-  }
+const fs = require("fs");
 
-  if (tree.value === value) {
-    return true;
-  }
-
-  return exists(tree.left, value) || exists(tree.right, value);
-};
-
-export const findPath = (tree, target, path = []) => {
-  if (target === tree.value) {
-    path.push(tree);
-    return path;
-  }
-
-  if (tree.left) {
-    let result = findPath(tree.left, target, path);
-    if (result) {
-      path.push(tree);
-      return path;
+const readNumsFromFile = (filepath, callback) => {
+  fs.readFile(filepath, (err, lines) => {
+    if (err) {
+      console.log("file not found");
     }
-  }
-
-  if (tree.right) {
-    let result = findPath(tree.right, target, path);
-    if (result) {
-      path.push(tree);
-      return path;
-    }
-  }
-
-  return null;
+    callback(lines);
+  });
 };
 
-const Node = function(value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
-};
-
-Node.prototype.insertLeft = function(value) {
-  let newNode = new Node(value);
-  this.left = newNode;
-  return newNode;
-};
-
-Node.prototype.insertRight = function(value) {
-  let newNode = new Node(value);
-  this.right = newNode;
-  return newNode;
-};
-
-export default Node;
+readNumsFromFile("./queries.sql", lines => {
+  lines = lines.toString();
+  console.log(
+    lines
+      .split("\n")
+      .map(Number)
+      .reduce((a, b) => a + b)
+  );
+});

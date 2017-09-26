@@ -9,7 +9,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -18,7 +17,6 @@ const fn2 = function(){};
 
 export { fn1, fn2 };
 **********/
-
 
 /*********
 Export functions as you write them
@@ -52,15 +50,23 @@ Export functions as you write them
 //   return null;
 // };
 
+/*
+Find a local minimum in an array of numbers. A local min is where a value in an
+array is between greater values on both sides.
+*/
+
 export const localMin = (array, left, right) => {
   left = left === undefined ? 0 : left;
   right = right === undefined ? array.length - 1 : right;
 
   let midpoint = Math.floor((right - left + 1) / 2) + left;
 
-  if (midpoint === left && array[midpoint] < array[midpoint + 1] ||
-    midpoint === right && array[midpoint] < array[midpoint - 1] ||
-    array[midpoint] < array[midpoint + 1] && array[midpoint] < array[midpoint - 1]) {
+  if (
+    (midpoint === left && array[midpoint] < array[midpoint + 1]) ||
+    (midpoint === right && array[midpoint] < array[midpoint - 1]) ||
+    (array[midpoint] < array[midpoint + 1] &&
+      array[midpoint] < array[midpoint - 1])
+  ) {
     return midpoint;
   }
 

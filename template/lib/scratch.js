@@ -56,27 +56,25 @@ export const subsets = array => {
 };
 
 export const permutations = array => {
-  // array = [1, 2, 3]
-  // 3! = 6 permutations
-  // Assume you have permutations for [1, 2], so [1, 2] and [2, 1]. Now
-  // how do you get permutations of [1, 2, 3]? Stick 3 in each of the indices.
-  // [3, 1, 2], [1, 3, 2], [1, 2, 3]
-  // [3, 2, 1], [2, 3, 1], [2, 1, 3]
+  /*
+  [[3]] => [[2, 3], [3, 2]]
+  [[2, 3], [3, 2]] => [1, 2, 3], [2, 1, 3], [2, 3, 1] // [1, 3, 2], [3, 1, 2], [3, 2, 1]
+  */
 
-  if (array.length) {
+  let totalPerms = [];
+
+  if (array.length === 1) {
     return [array];
   }
 
   let first = array[0];
   let perms = permutations(array.slice(1));
 
-  let totalPerms = [];
-
   perms.forEach(perm => {
-    perm.forEach((ltr, i) => {
-      let newPerm = [perm.slice(0, i).concat(first).concat(perm.slice(i))];
+    for (let i = 0; i <= perm.length; i++) {
+      let newPerm = perm.slice(0, i).concat(first).concat(perm.slice(i));
       totalPerms.push(newPerm);
-    });
+    }
   });
 
   return totalPerms;
