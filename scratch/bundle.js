@@ -68,9 +68,8 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
 /*********
 Export an object that contains multiple functions
 
@@ -115,75 +114,38 @@ export const fn2 = function(){};
 //   return obj;
 // };
 
-const exists = (tree, value) => {
-  if (tree === null) {
-    return false;
-  }
+// const fs = require("fs");
+//
+// const readNumsFromFile = (filepath, callback) => {
+//   fs.readFile(filepath, (err, lines) => {
+//     if (err) {
+//       console.log("file not found");
+//     }
+//     callback(lines);
+//   });
+// };
+//
+// readNumsFromFile("./queries.sql", lines => {
+//   lines = lines.toString();
+//   console.log(
+//     lines
+//       .split("\n")
+//       .map(Number)
+//       .reduce((a, b) => a + b)
+//   );
+// });
 
-  if (tree.value === value) {
-    return true;
-  }
-
-  return exists(tree.left, value) || exists(tree.right, value);
-};
-/* harmony export (immutable) */ __webpack_exports__["c"] = exists;
-
-
-const findPath = (tree, target, path = []) => {
-  if (target === tree.value) {
-    path.push(tree);
-    return path;
-  }
-
-  if (tree.left) {
-    let result = findPath(tree.left, target, path);
-    if (result) {
-      path.push(tree);
-      return path;
-    }
-  }
-
-  if (tree.right) {
-    let result = findPath(tree.right, target, path);
-    if (result) {
-      path.push(tree);
-      return path;
-    }
-  }
-
-  return null;
-};
-/* harmony export (immutable) */ __webpack_exports__["b"] = findPath;
-
-
-const Node = function(value) {
+const Tree = function(value) {
   this.value = value;
   this.left = null;
   this.right = null;
 };
 
-Node.prototype.insertLeft = function(value) {
-  let newNode = new Node(value);
-  this.left = newNode;
-  return newNode;
-};
-
-Node.prototype.insertRight = function(value) {
-  let newNode = new Node(value);
-  this.right = newNode;
-  return newNode;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = Node;
-
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scratch__ = __webpack_require__(0);
 /*********
 import a single object from a file
 
@@ -204,26 +166,26 @@ Set global window so we can manipulate in the browser
 window.scratch = scratch;
 *********/
 
+// import { BFT } from "./scratch";
+// import Tree from "./scratch";
 
+let BFT = __webpack_require__(0).BFT;
+let Tree = __webpack_require__(0).Tree;
+let curryMe = __webpack_require__(0).curryMe;
 
+const root = new Tree(1);
+const branch1 = root.addChild(2);
+const branch2 = root.addChild(3);
+const branch3 = branch1.addChild(4);
+const branch4 = branch1.addChild(5);
+const branch5 = branch2.addChild(6);
+const branch6 = branch2.addChild(7);
 
+BFT(root);
 
-let root = new __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */](6);
-let branch1 = root.insertLeft(3);
-let branch2 = root.insertRight(9);
-let branch3 = branch1.insertLeft(2);
-let branch4 = branch1.insertRight(5);
-let branch5 = branch2.insertLeft(8);
-let branch6 = branch2.insertRight(11);
-let branch7 = branch3.insertLeft(1);
-let branch8 = branch4.insertLeft(4);
-let branch9 = branch5.insertLeft(7);
-let branch10 = branch6.insertLeft(10);
-
-window.findPath = __WEBPACK_IMPORTED_MODULE_0__scratch__["b" /* findPath */];
-window.Node = __WEBPACK_IMPORTED_MODULE_0__scratch__["a" /* default */];
 window.root = root;
-window.exists = __WEBPACK_IMPORTED_MODULE_0__scratch__["c" /* exists */];
+window.BFT = BFT;
+window.curryMe = curryMe;
 
 
 /***/ })

@@ -9,7 +9,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -19,7 +18,6 @@ const fn2 = function(){};
 export { fn1, fn2 };
 **********/
 
-
 /*********
 Export functions as you write them
 
@@ -27,30 +25,30 @@ export const fn1 = function(){};
 export const fn2 = function(){};
 **********/
 
-const Tree = function (value) {
+const Tree = function(value) {
   this.value = value;
   this.right = null;
   this.left = null;
 };
 
-Tree.prototype.insertRight = function (value) {
+Tree.prototype.insertRight = function(value) {
   let newNode = new Tree(value);
   this.right = newNode;
   return newNode;
 };
 
-Tree.prototype.insertLeft = function (value) {
+Tree.prototype.insertLeft = function(value) {
   let newNode = new Tree(value);
   this.left = newNode;
   return newNode;
 };
 
-Tree.prototype.commonAncestor = function (node1, node2) {
+Tree.prototype.commonAncestor = function(node1, node2) {
   if (!this.exists(node1) || !this.exists(node2)) {
     return null;
   }
 
-  const findAncestor = function (root) {
+  const findAncestor = function(root) {
     if (root === null || root === node1 || root === node2) {
       return root;
     }
@@ -128,57 +126,57 @@ Tree.prototype.commonAncestor = function (node1, node2) {
 //   return ancestorPath;
 // };
 
-Tree.prototype.getAncestorPath = function (node, ancestorPath = []) {
-    // Traverse tree until this === node, return found = true, ancestorPath
-    // Base case:
-    // if this === node, then...
-    if (this === node) {
-      return ancestorPath;
-    }
-
-    if (this.left) {
-      let found = this.left.getAncestorPath(node, ancestorPath);
-      // if found, then...
-      if (found) {
-        // ancestorPath.push(this);
-        ancestorPath.push(this);
-        return ancestorPath;
-      }
-    }
-
-    // if node has a right child, then...
-    if (this.right) {
-      // found = this.right.getAncestorPath(node)
-      let found = this.right.getAncestorPath(node, ancestorPath);
-      // if found, then...
-      if (found) {
-        // ancestorPath.push(this)
-        ancestorPath.push(this);
-        return ancestorPath;
-      }
-    }
-  return null;
-};
-
-Tree.prototype.exists = function (target) {
-  let right, left;
-  if (this === target) {
-    return true;
+Tree.prototype.getAncestorPath = function(node, ancestorPath = []) {
+  // Traverse tree until this === node, return found = true, ancestorPath
+  // Base case:
+  // if this === node, then...
+  if (this === node) {
+    return ancestorPath;
   }
 
   if (this.left) {
-    left = this.left.exists(target);
+    let found = this.left.getAncestorPath(node, ancestorPath);
+    // if found, then...
+    if (found) {
+      // ancestorPath.push(this);
+      ancestorPath.push(this);
+      return ancestorPath;
+    }
   }
 
+  // if node has a right child, then...
   if (this.right) {
-    right = this.right.exists(target);
+    // found = this.right.getAncestorPath(node)
+    let found = this.right.getAncestorPath(node, ancestorPath);
+    // if found, then...
+    if (found) {
+      // ancestorPath.push(this)
+      ancestorPath.push(this);
+      return ancestorPath;
+    }
   }
+  return null;
+};
 
-  if (left || right) {
-    return true;
-  }
-
-  return false;
+Tree.prototype.exists = function(target) {
+  // let right, left;
+  // if (this === target) {
+  //   return true;
+  // }
+  //
+  // if (this.left) {
+  //   left = this.left.exists(target);
+  // }
+  //
+  // if (this.right) {
+  //   right = this.right.exists(target);
+  // }
+  //
+  // if (left || right) {
+  //   return true;
+  // }
+  //
+  // return false;
 };
 
 // Tree.prototype.exists = function (node, target) {
@@ -205,25 +203,29 @@ export const covers = (root, target) => {
   return covers(root.left, target) || covers(root.right, target);
 };
 
-Tree.prototype.DFSearch = function (value) {
+Tree.prototype.DFSearch = function(value) {
   if (this.value === value) {
     return true;
   }
 
   if (this.left) {
     let left = this.left.DFSearch(value);
-    if (left) { return true; }
+    if (left) {
+      return true;
+    }
   }
 
   if (this.right) {
     let right = this.right.DFSearch(value);
-    if (right) { return true; }
+    if (right) {
+      return true;
+    }
   }
 
   return false;
 };
 
-Tree.prototype.BFSearch = function (value) {
+Tree.prototype.BFSearch = function(value) {
   let queue = [];
   queue[0] = this;
 

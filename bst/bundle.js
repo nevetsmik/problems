@@ -82,7 +82,6 @@ const scratch = {
 export { scratch };
 **********/
 
-
 /*********
 Export multiple functions all at once
 
@@ -92,7 +91,6 @@ const fn2 = function(){};
 export { fn1, fn2 };
 **********/
 
-
 /*********
 Export functions as you write them
 
@@ -100,13 +98,13 @@ export const fn1 = function(){};
 export const fn2 = function(){};
 **********/
 
-const BST = function (value) {
+const BST = function(value) {
   this.value = value;
   this.left = null;
   this.right = null;
 };
 
-BST.prototype.insert = function (value) {
+BST.prototype.insert = function(value) {
   if (value < this.value) {
     if (this.left) {
       return this.left.insert(value);
@@ -126,8 +124,10 @@ BST.prototype.insert = function (value) {
   }
 };
 
-BST.prototype.min = function () {
-  if (this === null) { return null; }
+BST.prototype.min = function() {
+  if (this === null) {
+    return null;
+  }
 
   if (this.left) {
     return this.left.min();
@@ -136,8 +136,10 @@ BST.prototype.min = function () {
   }
 };
 
-BST.prototype.max = function () {
-  if (this === null) { return null; }
+BST.prototype.max = function() {
+  if (this === null) {
+    return null;
+  }
 
   if (this.right) {
     return this.right.max();
@@ -146,7 +148,7 @@ BST.prototype.max = function () {
   }
 };
 
-BST.prototype.find = function (value) {
+BST.prototype.find = function(value) {
   let found = null;
 
   if (this.value === value) {
@@ -160,7 +162,39 @@ BST.prototype.find = function (value) {
   return found;
 };
 
-BST.prototype.height = function () {
+BST.prototype.findClosestValue = function(value) {
+  if (this.value === value) {
+    return value;
+  }
+
+  if (value < this.value) {
+    if (!this.left) {
+      return this.value;
+    }
+    let closestValue = this.left.findClosestValue(value);
+    let currentDifference = Math.abs(this.value - value);
+    let childClosestDifference = Math.abs(closestValue - value);
+    if (currentDifference < childClosestDifference) {
+      return this.value;
+    } else {
+      return closestValue;
+    }
+  } else if (value > this.value) {
+    if (!this.right) {
+      return this.value;
+    }
+    let closestValue = this.right.findClosestValue(value);
+    let currentDifference = Math.abs(this.value - value);
+    let childClosestDifference = Math.abs(closestValue - value);
+    if (currentDifference < childClosestDifference) {
+      return this.value;
+    } else {
+      return closestValue;
+    }
+  }
+};
+
+BST.prototype.height = function() {
   let lHeight, rHeight;
   lHeight = rHeight = 0;
 
@@ -177,10 +211,9 @@ BST.prototype.height = function () {
   }
 
   return Math.max(lHeight, rHeight);
-
 };
 
-BST.prototype.deleteMin = function () {
+BST.prototype.deleteMin = function() {
   if (!this.left) {
     if (this.right) {
       return this.right;
@@ -189,15 +222,17 @@ BST.prototype.deleteMin = function () {
     }
   }
 
-  if (this.left){
+  if (this.left) {
     this.left = this.left.deleteMin();
   }
 
   return this;
 };
 
-BST.prototype.delete = function (value) {
-  if (value === null || value === undefined) { return null; }
+BST.prototype.delete = function(value) {
+  if (value === null || value === undefined) {
+    return null;
+  }
 
   if (value < this.value) {
     this.left = this.left.delete(value);
@@ -219,7 +254,9 @@ BST.prototype.delete = function (value) {
 };
 
 BST.prototype.secondToLargest = function() {
-  if (this === null) { return null; }
+  if (this === null) {
+    return null;
+  }
 
   if (this.right) {
     if (!this.right.right && !this.right.left) {
@@ -232,49 +269,100 @@ BST.prototype.secondToLargest = function() {
   } else {
     return this.left;
   }
-
 };
 
-BST.prototype.inOrder = function () {
-  let array = [];
+BST.prototype.inOrder = function() {
+  let result = [];
+
   if (this.left) {
-    array = array.concat(this.left.inOrder());
+    result = result.concat(this.left.inOrder());
   }
-  array.push(this.value);
+
+  result.push(this.value);
+
   if (this.right) {
-    array = array.concat(this.right.inOrder());
+    result = result.concat(this.right.inOrder());
   }
+
+  return result;
+};
+
+// BST.prototype.inOrder = function(node) {
+//   let result = [];
+//
+//   if (node === null) {
+//     return result;
+//   }
+//
+//   result = result.concat(node.inOrder(node.left));
+//
+//   result.push(node.value);
+//
+//   result = result.concat(node.inOrder(node.right));
+//
+//   return result;
+// };
+
+// BST.prototype.postOrder = function() {
+//   let array = [];
+//
+//   if (this.left) {
+//     array = array.concat(this.left.postOrder());
+//   }
+//
+//   if (this.right) {
+//     array = array.concat(this.right.postOrder());
+//   }
+//
+//   array.push(this.value);
+//
+//   return array;
+// };
+
+BST.prototype.postOrder = function(node) {
+  let array = [];
+
+  if (node === null) {
+    return array;
+  }
+
+  array = array.concat(node.postOrder(node.left));
+
+  array = array.concat(node.postOrder(node.right));
+
+  array.push(node.value);
+
   return array;
 };
 
-BST.prototype.postOrder = function () {
+// BST.prototype.preOrder = function() {
+//   let array = [];
+//
+//   array.push(this.value);
+//
+//   if (this.left) {
+//     array = array.concat(this.left.preOrder());
+//   }
+//
+//   if (this.right) {
+//     array = array.concat(this.right.preOrder());
+//   }
+//
+//   return array;
+// };
+
+BST.prototype.preOrder = function(node) {
   let array = [];
 
-  if (this.left) {
-    array = array.concat(this.left.postOrder());
+  if (node === null) {
+    return array;
   }
 
-  if (this.right) {
-    array = array.concat(this.right.postOrder());
-  }
+  array.push(node.value);
 
-  array.push(this.value);
+  array = array.concat(node.preOrder(node.left));
 
-  return array;
-};
-
-BST.prototype.preOrder = function () {
-  let array = [];
-
-  array.push(this.value);
-
-  if (this.left) {
-    array = array.concat(this.left.preOrder());
-  }
-
-  if (this.right) {
-    array = array.concat(this.right.preOrder());
-  }
+  array = array.concat(node.preOrder(node.right));
 
   return array;
 };

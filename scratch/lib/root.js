@@ -18,23 +18,23 @@ Set global window so we can manipulate in the browser
 window.scratch = scratch;
 *********/
 
-import { findPath, exists } from "./scratch";
+// import { BFT } from "./scratch";
+// import Tree from "./scratch";
 
-import Node from "./scratch";
+let BFT = require("./scratch.js").BFT;
+let Tree = require("./scratch.js").Tree;
+let curryMe = require("./scratch.js").curryMe;
 
-let root = new Node(6);
-let branch1 = root.insertLeft(3);
-let branch2 = root.insertRight(9);
-let branch3 = branch1.insertLeft(2);
-let branch4 = branch1.insertRight(5);
-let branch5 = branch2.insertLeft(8);
-let branch6 = branch2.insertRight(11);
-let branch7 = branch3.insertLeft(1);
-let branch8 = branch4.insertLeft(4);
-let branch9 = branch5.insertLeft(7);
-let branch10 = branch6.insertLeft(10);
+const root = new Tree(1);
+const branch1 = root.addChild(2);
+const branch2 = root.addChild(3);
+const branch3 = branch1.addChild(4);
+const branch4 = branch1.addChild(5);
+const branch5 = branch2.addChild(6);
+const branch6 = branch2.addChild(7);
 
-window.findPath = findPath;
-window.Node = Node;
+BFT(root);
+
 window.root = root;
-window.exists = exists;
+window.BFT = BFT;
+window.curryMe = curryMe;

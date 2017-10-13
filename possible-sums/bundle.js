@@ -98,46 +98,27 @@ export const fn1 = function(){};
 export const fn2 = function(){};
 **********/
 
-const subsets = array => {
-  // array = [1, 2, 3]
-  // 2^3 = 8 number of set subsets for the array
-  // Assume you have already have subsets of [1, 2], so
-  // [], [1], [2], [1, 2]. Now add [3] and concat the existing subsets of
-  // [1, 2] with the new subsets.
-  // New subsets: [3], [1, 3], [2, 3], [1, 2, 3]
-  // Old subsets: [], [1], [2], [1, 2]
-
-  if (array.length === 0) {
-    return [[]];
-  }
-
-  const first = array[0];
-  const withoutFirst = subsets(array.slice(1));
-  // remember, we don't want to mutate the subsets without the first element
-  // hence, the 'concat'
-  const withFirst = withoutFirst.map(sub => [first].concat(sub));
-
-  return withoutFirst.concat(withFirst);
-};
-/* harmony export (immutable) */ __webpack_exports__["b"] = subsets;
-
-
 const possibleSums = (coins, quantity) => {
-  let allCoins = [];
+  let sums = {};
+  sums[0] = true;
   for (let i = 0; i < coins.length; i++) {
-    for (let j = 0; j < quantity[i]; j++) {
-      allCoins.push(coins[i]);
-    }
+    Object.keys(sums).forEach(sum => {
+      for (let q = quantity[i]; q > 0; q--) {
+        sums[q * coins[i] + parseInt(sum)] = true;
+      }
+    });
   }
+  return Object.keys(sums).length - 1;
 
-  let nonEmptySubsets = subsets(allCoins).filter(subset => subset.length > 0);
-  let distinctValues = {};
-  nonEmptySubsets.forEach(subset => {
-    let sum = subset.reduce((accum, val) => accum + val);
-    distinctValues[sum] = true;
-  });
-
-  return Object.keys(distinctValues).length;
+  // let sums = new Set([0]);
+  // for (let i = 0; i < coins.length; i++) {
+  //   for (let sum of [...sums]) {
+  //     for (let q = quantity[i]; q > 0; q--) {
+  //       sums.add(q * coins[i] + sum);
+  //     }
+  //   }
+  // }
+  // return sums.size - 1;
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = possibleSums;
 
@@ -172,8 +153,9 @@ Set global window so we can manipulate in the browser
 window.scratch = scratch;
 *********/
 
+window.coins = [1, 2];
+window.quantity = [50000, 2];
 window.possibleSums = __WEBPACK_IMPORTED_MODULE_0__possibleSums__["a" /* possibleSums */];
-window.subsets = __WEBPACK_IMPORTED_MODULE_0__possibleSums__["b" /* subsets */];
 
 
 /***/ })

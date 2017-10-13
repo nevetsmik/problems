@@ -139,18 +139,25 @@ const makeBestChange = (amount, coins) => {
 
 
 // Counts the number of ways to make change for an amount with coins
-const coinSums = (amount, coins) => {
-  let count = 0;
+const coinSums = (amount, coins, index = 0, memo = {}) => {
+  let key = `${amount}-${index}`;
+  if (memo.hasOwnProperty(key)) {
+    console.log(`Grabbing ${memo[key]}`);
+    return memo[key];
+  }
 
   if (amount === 0) {
     return 1;
   }
 
-  for (let i = 0; i < coins.length; i++) {
+  let count = 0;
+  for (let i = index; i < coins.length; i++) {
     if (amount >= coins[i]) {
-      count += coinSums(amount - coins[i], coins.slice(i));
+      count += coinSums(amount - coins[i], coins, i, memo);
     }
   }
+
+  memo[key] = count;
 
   return count;
 };
@@ -176,15 +183,22 @@ const coinSums = (amount, coins) => {
       (1, [3, 2, 1], [3, 2], [[3, 3, 1], [3, 2, 2], [3, 2, 1, 1]])
 */
 
-const coins = (amount, denoms, currentCombo = [], result = []) => {
+// Find all the coin combinations that equal the amount
+const coins = (
+  amount,
+  denoms,
+  index = 0,
+  currentCombo = [],
+  result = []
+) => {
   if (amount === 0) {
     result.push(currentCombo.slice());
   }
 
-  for (let i = 0; i < denoms.length; i++) {
+  for (let i = index; i < denoms.length; i++) {
     if (amount >= denoms[i]) {
       currentCombo.push(denoms[i]);
-      coins(amount - denoms[i], denoms.slice(i), currentCombo, result);
+      coins(amount - denoms[i], denoms, i, currentCombo, result);
       currentCombo.pop();
     }
   }

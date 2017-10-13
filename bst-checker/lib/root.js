@@ -12,7 +12,7 @@ import { fn1, fn2 } from './scratch';
 
 // import { binarySearch } from './scratch';
 
-import Tree from './bstChecker';
+import Tree from "./bstChecker";
 
 /*********
 Set global window so we can manipulate in the browser

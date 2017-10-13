@@ -12,7 +12,7 @@ import { fn1, fn2 } from './scratch';
 
 // import { binarySearch } from './scratch';
 
-import { possibleSums, subsets } from "./possibleSums";
+import { possibleSums } from "./possibleSums";
 
 /*********
 Set global window so we can manipulate in the browser
@@ -20,5 +20,6 @@ Set global window so we can manipulate in the browser
 window.scratch = scratch;
 *********/
 
+window.coins = [1, 2];
+window.quantity = [50000, 2];
 window.possibleSums = possibleSums;
-window.subsets = subsets;

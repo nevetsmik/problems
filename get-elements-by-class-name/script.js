@@ -27,6 +27,11 @@ const getElementsByClassName = className => {
   return result;
 };
 
+const testParentNode = id => {
+  let node = document.getElementById(id).parentNode;
+  return node;
+};
+
 // DFS
 // const getElementsByClassName = className => {
 //   let body = document.body;

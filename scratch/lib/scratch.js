@@ -42,23 +42,23 @@ export const fn2 = function(){};
 //   return obj;
 // };
 
-const fs = require("fs");
-
-const readNumsFromFile = (filepath, callback) => {
-  fs.readFile(filepath, (err, lines) => {
-    if (err) {
-      console.log("file not found");
-    }
-    callback(lines);
-  });
-};
-
-readNumsFromFile("./queries.sql", lines => {
-  lines = lines.toString();
-  console.log(
-    lines
-      .split("\n")
-      .map(Number)
-      .reduce((a, b) => a + b)
-  );
-});
+// const fs = require("fs");
+//
+// const readNumsFromFile = (filepath, callback) => {
+//   fs.readFile(filepath, (err, lines) => {
+//     if (err) {
+//       console.log("file not found");
+//     }
+//     callback(lines);
+//   });
+// };
+//
+// readNumsFromFile("./queries.sql", lines => {
+//   lines = lines.toString();
+//   console.log(
+//     lines
+//       .split("\n")
+//       .map(Number)
+//       .reduce((a, b) => a + b)
+//   );
+// });

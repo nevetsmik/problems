@@ -25,6 +25,28 @@ export const fn1 = function(){};
 export const fn2 = function(){};
 **********/
 
+// Return the kth smallest integer in an unsorted array
+export const quickSelect = (array, k) => {
+  return quickSelectHelper(array, 0, array.length - 1, k);
+};
+
+export const quickSelectHelper = (array, start, end, k) => {
+  if (start === end) {
+    return array[start];
+  }
+
+  let pivot = partition(array, start, end);
+  if (pivot + 1 === k) {
+    return array[pivot];
+  }
+
+  if (k < pivot + 1) {
+    return quickSelectHelper(array, start, pivot - 1, k);
+  } else if (k > pivot + 1) {
+    return quickSelectHelper(array, pivot + 1, end, k);
+  }
+};
+
 export const partition = (array, start, end) => {
   let randomPivot = Math.floor(Math.random() * (end - start + 1)) + start;
   swap(array, start, randomPivot);
@@ -43,26 +65,6 @@ export const partition = (array, start, end) => {
   return divider;
 };
 
-export const quickSelect = (array, k) => {
-  return quickSelectHelper(array, 0, array.length - 1, k);
-};
-
-export const quickSelectHelper = (array, start, end, k) => {
-  if (start === end) {
-    return array[start];
-  }
-  let pivot = partition(array, start, end);
-  if (pivot + 1 === k) {
-    return array[pivot];
-  }
-
-  if (k < pivot + 1) {
-    return quickSelectHelper(array, start, pivot - 1, k);
-  } else if (k > pivot + 1) {
-    return quickSelectHelper(array, pivot + 1, end, k);
-  }
-};
-
 export const quickSort = array => {
   if (array.length <= 1) {
     return array;
@@ -71,7 +73,9 @@ export const quickSort = array => {
   let pivot = array[0];
   let left = array.filter(el => el < pivot);
   let right = array.filter(el => el > pivot);
-  return quickSort(left).concat([pivot]).concat(quickSort(right));
+  return quickSort(left)
+    .concat([pivot])
+    .concat(quickSort(right));
 };
 
 export const quickSortInPlace = array => {
@@ -153,7 +157,10 @@ export const permutations = array => {
 
   perms.forEach(perm => {
     for (let i = 0; i <= perm.length; i++) {
-      let newPerm = perm.slice(0, i).concat(first).concat(perm.slice(i));
+      let newPerm = perm
+        .slice(0, i)
+        .concat(first)
+        .concat(perm.slice(i));
       totalPerms.push(newPerm);
     }
   });
