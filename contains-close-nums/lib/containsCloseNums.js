@@ -1,31 +1,10 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given an array of integers nums and an integer k, determine whether there are two
+distinct indices i and j in the array where nums[i] = nums[j] and the absolute
+difference between i and j is less than or equal to k.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-// https://codefights.com/interview-practice/task/njfXsvjRthFKmMwLC
+https://codefights.com/interview-practice/task/njfXsvjRthFKmMwLC
+*/
 
 export const containsCloseNums = (nums, k) => {
   let duplicates = {};

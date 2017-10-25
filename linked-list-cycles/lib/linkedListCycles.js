@@ -1,45 +1,21 @@
-/*********
-Export an object that contains multiple functions
+/*
+Write a function to determine if a linked list contains a cycle.
+*/
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-const LLNode = function (value) {
+const LLNode = function(value) {
   this.value = value;
   this.next = null;
 };
 
-export const linkedListCycles = function (head) {
-  if (head === null) { return false; }
+export const linkedListCycles = function(head) {
+  if (head === null) {
+    return false;
+  }
 
   let fast = head;
   let slow = head;
 
   while (slow) {
-
     fast = incrementFast(fast);
     slow = slow.next;
 
@@ -53,7 +29,7 @@ export const linkedListCycles = function (head) {
   }
 };
 
-const incrementFast = function (node) {
+const incrementFast = function(node) {
   for (let i = 0; i < 2; i++) {
     node = node.next;
     if (node === null) {

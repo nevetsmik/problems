@@ -1,33 +1,6 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
 /*
+Find the first duplicate in an array.
+
 O(n) time complexity and O(1) additional space complexity
 
 Given an array a that contains only numbers in the range from 1 to a.length,
@@ -42,15 +15,15 @@ There are 2 duplicates: numbers 2 and 3. The second occurrence of 3 has
 a smaller index than than second occurrence of 2 does, so the answer is 3.
 */
 
-export const firstDuplicate = (array) => {
-    for (let i = 0; i < array.length; i++){
-      if (array[Math.abs(array[i]) - 1] < 0) {
-        // console.log('array: ', array);
-        return Math.abs(array[i]);
-      }
-      array[Math.abs(array[i]) - 1 ] *= -1;
+export const firstDuplicate = array => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[Math.abs(array[i]) - 1] < 0) {
+      // console.log('array: ', array);
+      return Math.abs(array[i]);
     }
-    return -1;
+    array[Math.abs(array[i]) - 1] *= -1;
+  }
+  return -1;
 };
 
 // export const firstDuplicate = (array) => {

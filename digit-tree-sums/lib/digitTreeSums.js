@@ -1,29 +1,15 @@
-/*********
-Export an object that contains multiple functions
+/*
+Write a function that collects all the paths in a binary tree and sums of the result
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Example:
 
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+        9
+      /   \
+    9      9
+          / \
+         1   3
+  [99, 991, 993] = 2083
+*/
 
 const Node = function(value) {
   this.value = value;
@@ -48,6 +34,7 @@ export const digitTreeSums = t => {
     return 0;
   }
   let treePath = allPaths(t);
+  console.log(treePath);
   return treePath.map(Number).reduce((accum, curr) => accum + curr);
 };
 

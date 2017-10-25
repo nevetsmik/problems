@@ -1,34 +1,11 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Find the highest product of three numbers from an array of unsorted numbers.
+*/
 
 export const highestProductOfThree = array => {
-  if (array.length < 3) { return null; }
+  if (array.length < 3) {
+    return null;
+  }
 
   let highest3 = array[0] * array[1] * array[2];
   let highest2 = array[0] * array[1];

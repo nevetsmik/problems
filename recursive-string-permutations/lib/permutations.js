@@ -1,33 +1,12 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given a single input string, write a function that produces all possible anagrams
+of a string and outputs them as an array. At first, don't worry about
+repeated strings.  What time complexity is your solution?
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Extra credit: Deduplicate your return array without using uniq()
+*/
 
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-export const permutations = (string) => {
+export const permutations = string => {
   if (string.length <= 1) {
     return [string];
   }
@@ -39,27 +18,32 @@ export const permutations = (string) => {
 
   let perms = [];
 
-  permutationsOfAllCharsExceptLast.forEach(function(permutationOfAllCharsExceptLast) {
-      for (let position = 0; position <= allCharsExceptLast.length; position++) {
-          let permutation = permutationOfAllCharsExceptLast.slice(0, position) + lastChar + permutationOfAllCharsExceptLast.slice(position);
-          perms.push(permutation);
-      }
+  permutationsOfAllCharsExceptLast.forEach(function(
+    permutationOfAllCharsExceptLast
+  ) {
+    for (let position = 0; position <= allCharsExceptLast.length; position++) {
+      let permutation =
+        permutationOfAllCharsExceptLast.slice(0, position) +
+        lastChar +
+        permutationOfAllCharsExceptLast.slice(position);
+      perms.push(permutation);
+    }
   });
   return perms;
 };
 
 export const allAnagrams = function(string) {
-  // Your code here.
-
   var uniqueOutput = {};
 
-  (function anagram (ana, str) {
-    if (str === '') { uniqueOutput[ana] = 1; }
+  (function anagram(ana, str) {
+    if (str === "") {
+      uniqueOutput[ana] = 1;
+    }
 
     for (var i = 0; i < str.length; i++) {
       anagram(ana + str[i], str.slice(0, i) + str.slice(i + 1));
     }
-  })('', string);
+  })("", string);
 
   return Object.keys(uniqueOutput);
 };

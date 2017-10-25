@@ -1,3 +1,7 @@
+/*
+Implement a hash the resizes
+*/
+
 var getIndexBelowMaxForKey = function(str, max) {
   var hash = 0;
   for (var i = 0; i < str.length; i++) {
@@ -13,8 +17,8 @@ export const makeHashTable = function(limit) {
   let size = 0;
   let storage = [];
 
-  const resize = function (direction) {
-    if (direction === 'up') {
+  const resize = function(direction) {
+    if (direction === "up") {
       maxSize = maxSize * 2;
     } else {
       maxSize = Math.floor(maxSize / 2);
@@ -24,7 +28,9 @@ export const makeHashTable = function(limit) {
     storage = [];
     size = 0;
     for (let i = 0; i < oldStorage.length; i++) {
-      if (oldStorage[i] === undefined) { continue; }
+      if (oldStorage[i] === undefined) {
+        continue;
+      }
       for (let j = 0; j < oldStorage[i].length; j++) {
         hash.insert(oldStorage[i][j][0], oldStorage[i][j][1]);
         size += 1;
@@ -34,7 +40,7 @@ export const makeHashTable = function(limit) {
   };
 
   let hash = {
-    insert: function (key, value) {
+    insert: function(key, value) {
       let bucket = getIndexBelowMaxForKey(key, maxSize);
       storage[bucket] = storage[bucket] || [];
       let found = false;
@@ -50,11 +56,11 @@ export const makeHashTable = function(limit) {
       }
 
       if (size > 0.75 * maxSize) {
-        resize('up');
+        resize("up");
       }
     },
 
-    retrieve: function (key) {
+    retrieve: function(key) {
       let bucket = getIndexBelowMaxForKey(key, maxSize);
       if (storage[bucket] === undefined) {
         return null;
@@ -68,7 +74,7 @@ export const makeHashTable = function(limit) {
       return null;
     },
 
-    remove: function (key) {
+    remove: function(key) {
       let bucket = getIndexBelowMaxForKey(key, maxSize);
       if (storage[bucket] === undefined) {
         return null;
@@ -85,7 +91,7 @@ export const makeHashTable = function(limit) {
       }
 
       if (size < 0.25 * maxSize) {
-        resize('down');
+        resize("down");
       }
 
       if (value) {
@@ -93,7 +99,7 @@ export const makeHashTable = function(limit) {
       } else {
         return null;
       }
-    }
+    },
   };
 
   return hash;

@@ -1,33 +1,7 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given a an array of numbers representing stock prices on consecutive days, Find
+the maximum buy-sell profit.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-/*********
 "Suppose we could come up with the answer in one pass through the input,
 by simply updating the 'best answer so far' as we went. What additional
 values would we need to keep updated as we looked at each item in our set,
@@ -43,9 +17,7 @@ constant time. The max profit is the larger of:
 1. The previous max profit
 2. The max profit we can get by selling now (the current price minus the
 minimum price seen so far)
-**********/
-
-
+*/
 
 export const stockPrice = stocks => {
   let min = stocks[0];

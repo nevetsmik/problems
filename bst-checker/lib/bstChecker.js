@@ -1,29 +1,8 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Write a function that checks whether a tree is a valid binary search tree.
+The left child is less than it's parent and the right child is greater than it's
+parent.
+*/
 
 const Tree = function(value) {
   this.value = value;

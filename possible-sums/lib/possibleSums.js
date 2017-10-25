@@ -1,29 +1,31 @@
-/*********
-Export an object that contains multiple functions
+/*
+You have a collection of coins, and you know the values of the coins and the
+quantity of each type of coin in it. You want to know how many distinct sums
+you can make from non-empty groupings of these coins.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Example
 
-export { scratch };
-**********/
+For coins = [10, 50, 100] and quantity = [1, 2, 1], the output should be
+possibleSums(coins, quantity) = 9.
 
-/*********
-Export multiple functions all at once
+Here are all the possible sums:
+50 = 50;
+10 + 50 = 60;
+50 + 100 = 150;
+10 + 50 + 100 = 160;
+50 + 50 = 100;
+10 + 50 + 50 = 110;
+50 + 50 + 100 = 200;
+10 + 50 + 50 + 100 = 210;
+10 = 10;
+100 = 100;
+10 + 100 = 110.
 
-const fn1 = function(){};
-const fn2 = function(){};
+As you can see, there are 9 distinct sums that can be created from non-empty
+groupings of your coins.
 
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://codefights.com/interview-practice/task/rMe9ypPJkXgk3MHhZ
+*/
 
 export const possibleSums = (coins, quantity) => {
   let sums = {};

@@ -1,37 +1,15 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Write a function that takes:
+a list of unsorted_scores
+the highest_possible_score in the game
+and returns a sorted list of scores in less than O(n*log n) time.
+*/
 
 export const topScores = (unsortedScores, HIGHEST_POSSIBLE_SCORE) => {
   const scoreCounts = [];
   const sortedScores = [];
 
-  unsortedScores.forEach((score) => {
+  unsortedScores.forEach(score => {
     scoreCounts[score] = scoreCounts[score] || 0;
     scoreCounts[score] = scoreCounts[score] + 1;
   });

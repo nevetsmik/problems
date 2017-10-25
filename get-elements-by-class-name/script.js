@@ -1,3 +1,7 @@
+/*
+Collect all elements that have a matching class name.
+*/
+
 document.addEventListener("DOMContentLoaded", () => {
   let nodes = getElementsByClassName("navbar");
   console.log(nodes);

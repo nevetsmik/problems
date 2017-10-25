@@ -1,29 +1,18 @@
-/*********
-Export an object that contains multiple functions
+/*
+You have an array of integers nums and an array queries, where queries[i] is a
+pair of indices (0-based). Find the sum of the elements in nums from the
+indices at queries[i][0] to queries[i][1] (inclusive) for each query, then add
+all of the sums for all the queries together. Return that number modulo 109 + 7.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Example
 
-export { scratch };
-**********/
+For nums = [3, 0, -2, 6, -3, 2] and queries = [[0, 2], [2, 5], [0, 5]], the output should be
+sumInRange(nums, queries) = 10.
 
-/*********
-Export multiple functions all at once
+The array of results for queries is [1, 3, 6], so the answer is 1 + 3 + 6 = 10
 
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://codefights.com/interview-practice/task/4MoqQLaw22nrzXbgs
+*/
 
 /*
   nums = [3, 0, -2, 6, -3, 2]

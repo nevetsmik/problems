@@ -1,30 +1,3 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
 /*
 You have two strings, s and t. The string t contains only unique elements.
 Find and return the minimum consecutive substring of s that contains all of the elements from t.
@@ -34,6 +7,8 @@ the one which starts from the smallest index.
 
 For s = "adobecodebanc" and t = "abc", the output should be
 minSubstringWithAllChars(s, t) = "banc".
+
+https://codefights.com/interview-practice/task/rFeSD5rNy9RxfLcqg
 */
 
 /*
@@ -49,6 +24,7 @@ Iterate left checking if the minimized substring still contains all the letters 
   Break if the minimized substring no longer contains all the letters in t
   Update the minSubstring if the current substring is less than minSubstring
 */
+
 export const minSubstringWithAllChars = (s, t) => {
   if (s === "") {
     return "";

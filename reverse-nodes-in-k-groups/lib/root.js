@@ -1,24 +1,8 @@
-/*********
-import a single object from a file
-
-import { scratch } from './scratch';
-*********/
-
-/*********
-import a multiple objects from a file via object destructuring
-
-import { fn1, fn2 } from './scratch';
-*********/
-
-// import { binarySearch } from './scratch';
-
-import { Node, reverseList, reverseNodesInKGroups } from './reverseNodesInKGroups';
-
-/*********
-Set global window so we can manipulate in the browser
-
-window.scratch = scratch;
-*********/
+import {
+  Node,
+  reverseList,
+  reverseNodesInKGroups,
+} from "./reverseNodesInKGroups";
 
 // let l1 = Node(24042453);
 // let l2 = Node(-540165420);

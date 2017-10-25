@@ -1,32 +1,6 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
+/*
+Write a function to find the first duplicate value in an array.
+*/
 
 //
 // O(n) time and O(n) space
@@ -45,14 +19,15 @@ export const fn2 = function(){};
 //   return null;
 // };
 
-export const findDuplicateOptimizeForSpaceBeastMode = (array) => {
+// O(n) time and O(1) space
+export const findDuplicateOptimizeForSpaceBeastMode = array => {
   for (let i = 0; i < array.length; i++) {
     // Strategy:
-      // Use the array position as a placeholder for counting the occurrence of values in the array
-      // Iterate through the array and negate the value in the index that represents the placeholder for counting the occurrence
-      // For example, [2, 3, 3, 1, 5, 2] after it's first iteration will look like:
-        // [2, 3, -3, 1, 5, 2], the second will look like
-        // [2, 3, -3, -1, 5, 2], the third will return 3
+    // Use the array position as a placeholder for counting the occurrence of values in the array
+    // Iterate through the array and negate the value in the index that represents the placeholder for counting the occurrence
+    // For example, [2, 3, 3, 1, 5, 2] after it's first iteration will look like:
+    // [2, 3, -3, 1, 5, 2], the second will look like
+    // [2, 3, -3, -1, 5, 2], the third will return 3
     if (array[Math.abs(array[i])] < 0) {
       return Math.abs(array[i]);
     }

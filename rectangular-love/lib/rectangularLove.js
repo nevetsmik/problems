@@ -1,33 +1,8 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
 /*
+Find the overlapping rectangle of two rectangles.
+
+https://www.interviewcake.com/question/javascript/rectangular-love
+
 var myRectangle = {
 
   // coordinates of bottom-left corner
@@ -77,7 +52,7 @@ const findXOverlap = (x1, x1width, x2, x2width) => {
   if (highestStartingPoint >= lowestEndingPoint) {
     return {
       bottomX: null,
-      width: null
+      width: null,
     };
   }
 
@@ -85,7 +60,7 @@ const findXOverlap = (x1, x1width, x2, x2width) => {
 
   return {
     bottomX: highestStartingPoint,
-    width: width
+    width: width,
   };
 };
 
@@ -96,7 +71,7 @@ const findYOverlap = (y1, y1height, y2, y2height) => {
   if (highestStartingPoint >= lowestEndingPoint) {
     return {
       bottomY: null,
-      height: null
+      height: null,
     };
   }
 
@@ -104,6 +79,6 @@ const findYOverlap = (y1, y1height, y2, y2height) => {
 
   return {
     bottomY: highestStartingPoint,
-    height: height
+    height: height,
   };
 };

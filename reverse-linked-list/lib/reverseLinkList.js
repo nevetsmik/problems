@@ -1,31 +1,6 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Reverse a linked list.
+*/
 
 export const LinkedListNode = function(value) {
   this.value = value;
@@ -84,8 +59,7 @@ export const reverseLinkList = head => {
   return prev;
 };
 
-
-export const printLinkedList = (node) => {
+export const printLinkedList = node => {
   let itr = node;
   while (itr !== null) {
     console.log(`Node value is: ${itr.value}`);

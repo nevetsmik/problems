@@ -1,30 +1,8 @@
-/*********
-Export an object that contains multiple functions
+/*
+Find a local minimum in an array of numbers. A local min is where a value in an
+array is between greater values on both sides.
+*/
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-//
-// export const fn1 = function(){};
-// export const fn2 = function(){};
-// **********/
-//
 // export const localMin = (array) => {
 //   let left = 0;
 //   let right = array.length - 1;
@@ -49,11 +27,6 @@ Export functions as you write them
 //   }
 //   return null;
 // };
-
-/*
-Find a local minimum in an array of numbers. A local min is where a value in an
-array is between greater values on both sides.
-*/
 
 export const localMin = (array, left, right) => {
   left = left === undefined ? 0 : left;

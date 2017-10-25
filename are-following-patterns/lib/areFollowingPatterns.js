@@ -1,29 +1,11 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given an array strings, determine whether it follows the sequence given in the
+patterns array. In other words, there should be no i and j for which
+strings[i] = strings[j] and patterns[i] ≠ patterns[j] or for which
+strings[i] ≠ strings[j] and patterns[i] = patterns[j].
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://codefights.com/interview-practice/task/3PcnSKuRkqzp8F6BN
+*/
 
 export const areFollowingPatterns = (strings, patterns) => {
   let stringsToPatterns = {};

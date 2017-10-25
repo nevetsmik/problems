@@ -1,34 +1,15 @@
-/*********
-import a single object from a file
-
-import { scratch } from './scratch';
-*********/
-
-/*********
-import a multiple objects from a file via object destructuring
-
-import { fn1, fn2 } from './scratch';
-*********/
-
-// import { binarySearch } from './scratch';
-
 import { groupingDishes } from "./groupingDishes";
 
-/*********
-Set global window so we can manipulate in the browser
-
-window.scratch = scratch;
-*********/
 window.dishes = [
   [
     "BbJARRtwbtPlmMJGLEYuzMMdbVLeYtnpgMHAVRKeduXmTtMVxn",
     "kCdCc",
-    "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz"
+    "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz",
   ],
   [
     "IefhFYodXLmmkhiHffQr",
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
-    "kTYoSrYyWxVpdmD"
+    "kTYoSrYyWxVpdmD",
   ],
   [
     "GsxpnOGLvsovBAKyqWRlvQci",
@@ -39,14 +20,14 @@ window.dishes = [
     "T",
     "QWzewgfgILJjGXiZPSsuULftQJugntGHoKxeIOdUKJrLXqvPE",
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
-    "YbjfhDnAQGowCjtTqYDoc"
+    "YbjfhDnAQGowCjtTqYDoc",
   ],
   [
     "lRtlExjGvwk",
     "lzgbMTEnCPCLziYGubwSiJqoWPwFpeyqGcu",
     "kTYoSrYyWxVpdmD",
     "kCdCc",
-    "oUthxrskNGsp"
+    "oUthxrskNGsp",
   ],
   [
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
@@ -57,7 +38,7 @@ window.dishes = [
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
     "QWzewgfgILJjGXiZPSsuULftQJugntGHoKxeIOdUKJrLXqvPE",
     "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz",
-    "OGgVkxKpsnDTKIUXoYPYJAvHJUnlBgcs"
+    "OGgVkxKpsnDTKIUXoYPYJAvHJUnlBgcs",
   ],
   [
     "VEzdllSWYYz",
@@ -66,7 +47,7 @@ window.dishes = [
     "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz",
     "KWlRFZBbRNP",
     "FseQmHqTJGzlPOdwXvU",
-    "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq"
+    "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
   ],
   [
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
@@ -76,24 +57,24 @@ window.dishes = [
     "RIyUPcovuGDrPvYFFobA",
     "aNyKuTJvXVoQcGTGdSNazmgNYkIexq",
     "mEsLIhX OE ACGLQASNrTFTqxaXHfcaXISJGkcmijoeDgx",
-    "kCdCc"
+    "kCdCc",
   ],
   [
     "f RGnbHGCQkOStPozqsKfpRsqcYgffFdolmg",
     "ELHqkjDr wzNDLHr",
-    "NuquTeIZtVWgrGngsNdAvpgW"
+    "NuquTeIZtVWgrGngsNdAvpgW",
   ],
   ["tUPbaXERWGNtAOXtPCdmoVuLoYJnq", "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K"],
   [
     "xKrXTcjdFr nMDnzXDahjuWbnU",
     " KQDLrdsCpYKWjPCZlEsiCBxl",
-    "tnzMlHsyrPimhGpJnlKbDNnrcJg KkvDWqSwkZixKvDxVlusBS"
+    "tnzMlHsyrPimhGpJnlKbDNnrcJg KkvDWqSwkZixKvDxVlusBS",
   ],
   [
     "SuiiWSpIUYdcrJXsX zbbqKHQtNPyEsMbcbiinWPquculvCkoB",
     "pcLKjbfbGbuKOcksnvjUKdq",
     "FfuUydwSqCpJtEuEWWRhxezOXPdeRu zZtobhcDJEXaw",
-    "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd"
+    "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd",
   ],
   [
     "YLlsgwmXifogTlEDIjNOzof",
@@ -103,7 +84,7 @@ window.dishes = [
     "kTYoSrYyWxVpdmD",
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
     "FfuUydwSqCpJtEuEWWRhxezOXPdeRu zZtobhcDJEXaw",
-    "RJxJcPLxJzBfj ZDPItPZAgvvNmz"
+    "RJxJcPLxJzBfj ZDPItPZAgvvNmz",
   ],
   [
     "nTOUbMhKokeUhiKGoWHSyAyI",
@@ -111,14 +92,14 @@ window.dishes = [
     "pcLKjbfbGbuKOcksnvjUKdq",
     "oOGcILKITAjbqEisXGWMXqcqVNAkdhcCPx ",
     "KbiETXsu",
-    "dnvhWXdwuMPlGydn"
+    "dnvhWXdwuMPlGydn",
   ],
   [
     "GXUIPEKGhbgOZEcIupMoxPxSVxgWaXcJ",
     "FseQmHqTJGzlPOdwXvU",
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
     "lCbprdLWCQhnqpvOsH",
-    " KQDLrdsCpYKWjPCZlEsiCBxl"
+    " KQDLrdsCpYKWjPCZlEsiCBxl",
   ],
   [
     "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
@@ -129,7 +110,7 @@ window.dishes = [
     "tnzMlHsyrPimhGpJnlKbDNnrcJg KkvDWqSwkZixKvDxVlusBS",
     " QyCHIPLUrPiSVBbRIUiVZFrAhi POTzpdHzxReUGf",
     "NuquTeIZtVWgrGngsNdAvpgW",
-    "efx"
+    "efx",
   ],
   [
     "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
@@ -141,27 +122,27 @@ window.dishes = [
     "vDTLzlMRWeLtxRPCCfsMotddfuQimtSDjfDTspUli",
     "TUmpGpybXSErBTSFTfOxRFcj jDzYoJNlHDBqDcfMcr",
     "usJhgZZbxpEpmiYdtsMecPPUa",
-    "CkcZdbfcATWdiHmeWFHFmdW"
+    "CkcZdbfcATWdiHmeWFHFmdW",
   ],
   [
     "SFrIiROjhJcVuGlwYQij OxdsWKBFxQNCOzEuodVsYr",
     "QSkjfXdS",
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
-    "YkcpQEn oRYRYYC"
+    "YkcpQEn oRYRYYC",
   ],
   [
     "fSnen",
     "qLnQGqMKRulqB",
     "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd",
     "CtgwAutobmreCj",
-    "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz"
+    "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz",
   ],
   [
     "ruGXqswGhufoXdUeQDAYMj ac",
     "QSkjfXdS",
     "Nkuhsdb",
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
-    "mEsLIhX OE ACGLQASNrTFTqxaXHfcaXISJGkcmijoeDgx"
+    "mEsLIhX OE ACGLQASNrTFTqxaXHfcaXISJGkcmijoeDgx",
   ],
   [
     "EEBgNpUjTjFYIlqwOyCjBglIdGMOGCndltVxmdWuRLJx",
@@ -171,7 +152,7 @@ window.dishes = [
     "lNZrqESQEqCufJiQz HdLtwkxCEoQzXdFdcUNV",
     "KWlRFZBbRNP",
     "kTYoSrYyWxVpdmD",
-    "PQLIrCqTFa JJTYQXyde"
+    "PQLIrCqTFa JJTYQXyde",
   ],
   [
     "anNTcAQMOjDkcUiOjtVEFquA",
@@ -183,7 +164,7 @@ window.dishes = [
     "YbjfhDnAQGowCjtTqYDoc",
     "YqJLN eqUmvPLQuchLgpwNLlTWzyCUmYNnxyLluIo PYIzLz",
     "IHWPZjwwWcNAKZwTpUfOCwWGxUgcuvTxef",
-    "RIyUPcovuGDrPvYFFobA"
+    "RIyUPcovuGDrPvYFFobA",
   ],
   [
     "LGOSvYoOIeHjlyQuAFTQueFwEPuJhXVHZGVyonVmDjT MReFr",
@@ -191,7 +172,7 @@ window.dishes = [
     "QWzewgfgILJjGXiZPSsuULftQJugntGHoKxeIOdUKJrLXqvPE",
     "uKerT",
     "aQCKiewLgQ SalneziUEEJwPkbtoatllNOSBEfDxJJ",
-    "HchzMSCwXfNAF"
+    "HchzMSCwXfNAF",
   ],
   [
     "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
@@ -200,13 +181,13 @@ window.dishes = [
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
     "kFLQcL ZIcVuvuJUgURegSUzGMovWOmxySVRLOY",
     "OOluIHyOZ pZjpHkOTPOLlReRyw eGaG P",
-    "FseQmHqTJGzlPOdwXvU"
+    "FseQmHqTJGzlPOdwXvU",
   ],
   [
     "cfolGfdXHgJB",
     "tzFeG QXcXLsRpDVkrH PqnzTsFlKEI JFAk fnn",
     "TUmpGpybXSErBTSFTfOxRFcj jDzYoJNlHDBqDcfMcr",
-    "KUxvrIzJaKweMmTwkwAKsRWEPGHAeQVChV"
+    "KUxvrIzJaKweMmTwkwAKsRWEPGHAeQVChV",
   ],
   [
     "pxHNxCTeEYeIP",
@@ -216,7 +197,7 @@ window.dishes = [
     "qcwogb T IaZuFJFlBrzCkOKy",
     "CIhtBAmUMatB Y HLKsFdvCVTaeDFiZcdwjACRYHEoxXeBA",
     "CDnEhMMqPRuMZlcOtHXhz",
-    "kFLQcL ZIcVuvuJUgURegSUzGMovWOmxySVRLOY"
+    "kFLQcL ZIcVuvuJUgURegSUzGMovWOmxySVRLOY",
   ],
   [
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
@@ -227,11 +208,11 @@ window.dishes = [
     "sMADooXXDndpfOhpgDgyizhnG",
     "PVKpF",
     "qzDSsLYLleAfjUgdqMpmFEZV XdOBjvAtYe l",
-    "eLaWbGWWaiBsvtCVDB"
+    "eLaWbGWWaiBsvtCVDB",
   ],
   [
     "tl WvwIYStCLhwHMNIsFabIHrszmRNdXoauhNtCCsWvfv",
-    "SiYPPuqCJhPrOAsatoWRObCyxVHhAUgDCNBRfUfclRBIkh"
+    "SiYPPuqCJhPrOAsatoWRObCyxVHhAUgDCNBRfUfclRBIkh",
   ],
   [
     "RnFPXgGrteeKvKBqfUGKFfkrhRNTuTqiey",
@@ -241,7 +222,7 @@ window.dishes = [
     "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd",
     "arqz",
     "DfkhSppbCBHjuaLOlf ",
-    "mDEl CbHSqXcilHoPDAXhPUfYgIYazmfFeXfVcty"
+    "mDEl CbHSqXcilHoPDAXhPUfYgIYazmfFeXfVcty",
   ],
   [
     "mpRfYKqXmTlv qraFGym",
@@ -253,20 +234,20 @@ window.dishes = [
     "JxaH gLbwbF",
     "nAKFNR",
     "LOcSIESbLyHCqro eaJwLCuUghlPRjkMGOPCzaxEUS",
-    "oLIywkMcSWgwKexqIzlBFKuXvatLBpqji"
+    "oLIywkMcSWgwKexqIzlBFKuXvatLBpqji",
   ],
   ["STKqUartaaJcxfIKZPnKvZTfAp", "CtgwAutobmreCj"],
   [
     "wVPaechrqiNhwyxLoeudPSYG hhm Dfy",
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
-    "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd"
+    "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd",
   ],
   [
     " UZMaYVFTYqEMSYSnSJKghfHfgfofpFf",
     "byxXYfZsokeZqozjCGcltTWQOY DefJcIBCGamyZhNZjdeM",
     "sogy lXguj",
     "EaOWqaZPLCJHhinlXKYCSKIVDADBcrOD",
-    "JhLmAtdMmRMEdnJuOUJJQtbxxVktmmmbWTOISGhxinanxlK"
+    "JhLmAtdMmRMEdnJuOUJJQtbxxVktmmmbWTOISGhxinanxlK",
   ],
   [
     "uLfZJGvUGfHPQPsNyZwWpYGs",
@@ -274,13 +255,13 @@ window.dishes = [
     "j",
     "GRbzQuRBuZrHKpYtUcdftkuPzAOqBCgZNIuadmQMkud",
     "FohBDSSLCXoL",
-    "VRNNcMZNLHESGUbrYCmoabWmKnonDgZVEqGiltPlbRhWBTiHVg"
+    "VRNNcMZNLHESGUbrYCmoabWmKnonDgZVEqGiltPlbRhWBTiHVg",
   ],
   [
     "xetqkfgqDgoRCcYRtrys",
     "XfFmfCnsPrUihVOaJjQUMxtpUvicyIdyzPWeRyddshfMwCOVIO",
     "xM IZXlKZClFiqSgEqQDmuzryGHmKugJ",
-    "gDvDTFHocn"
+    "gDvDTFHocn",
   ],
   [
     "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
@@ -292,7 +273,7 @@ window.dishes = [
     "aNyKuTJvXVoQcGTGdSNazmgNYkIexq",
     "arqz",
     "MhdpZeijhTNZEvWBtHmeFKlwncEBnZZGzvwlcN",
-    "YOGSjmNaLqbNkf"
+    "YOGSjmNaLqbNkf",
   ],
   [
     "UPtMvjFVNzdI",
@@ -301,14 +282,14 @@ window.dishes = [
     "AOlBIiOzCX",
     "DIoGqAUZVBKS",
     "Ad",
-    "FeEdYzSxYfqyu"
+    "FeEdYzSxYfqyu",
   ],
   [
     "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx",
     "rFpz",
     "DfkhSppbCBHjuaLOlf ",
     "KUxvrIzJaKweMmTwkwAKsRWEPGHAeQVChV",
-    "pJBKLCwuPYRwuaGvuYNmmpnA"
+    "pJBKLCwuPYRwuaGvuYNmmpnA",
   ],
   [
     "mJHhTrbOFJJmHMrsZaiIzbpMshILEKRaTmWVSmFLcATwtjtY",
@@ -316,7 +297,7 @@ window.dishes = [
     "F",
     "DIoGqAUZVBKS",
     "mCUGfLHceZpqAMPefteC",
-    "JMLG"
+    "JMLG",
   ],
   [
     "CJsPY",
@@ -326,7 +307,7 @@ window.dishes = [
     "jsxXN RiaihcAgRfTBPfQGXbbJbXdtlzvwgYZHWJxddEMRLK",
     "OGgVkxKpsnDTKIUXoYPYJAvHJUnlBgcs",
     "ELHqkjDr wzNDLHr",
-    "DBiFrw"
+    "DBiFrw",
   ],
   [
     "BE yVDnTm",
@@ -335,7 +316,7 @@ window.dishes = [
     "LOcSIESbLyHCqro eaJwLCuUghlPRjkMGOPCzaxEUS",
     "jsxXN RiaihcAgRfTBPfQGXbbJbXdtlzvwgYZHWJxddEMRLK",
     "NDtHkcmetflVUDv",
-    "pcLKjbfbGbuKOcksnvjUKdq"
+    "pcLKjbfbGbuKOcksnvjUKdq",
   ],
   [
     "geuWhdGsYNOFpAPquX RypMDvxaPbRmzrMMDdHNmK",
@@ -343,20 +324,20 @@ window.dishes = [
     "pTGLTc",
     "XdpatHtDsmeeLFYZMLKX",
     "ToHsHvBmJTDEQnhAzPHdVPwLnoPLi",
-    "IBpZnyJwXTwkkmHhKIkyeNXHWRrUSTvaN"
+    "IBpZnyJwXTwkkmHhKIkyeNXHWRrUSTvaN",
   ],
   [
     "lWz IkqkWGfjmxJqsCnNVpLsD",
     "edljfNcVNVspQfwDNfLyZirCfDdXwwMkkePLdAStgaKillLt",
     "jRhMfWDSUzpcm JIOMdPalnKcFsETJVuIacOrcRZxOjmx",
-    "FSRAGOyO"
+    "FSRAGOyO",
   ],
   [
     "qbgHafWkXWJ pNgepPANmbPGUBgu",
     "OQZKLnIutZn",
     "kCdCc",
     "HvKRNiJClrlUhToNfcMweTqsJ",
-    "cLakEEeOvLcqzNTvpiBwxwGuNSrsBq"
+    "cLakEEeOvLcqzNTvpiBwxwGuNSrsBq",
   ],
   [
     "gumgPIONQdHcXPAjCQFUBdmkUwCeyCqlITO",
@@ -366,11 +347,11 @@ window.dishes = [
     "DIoGqAUZVBKS",
     "HvKRNiJClrlUhToNfcMweTqsJ",
     "usJhgZZbxpEpmiYdtsMecPPUa",
-    "qcwogb T IaZuFJFlBrzCkOKy"
+    "qcwogb T IaZuFJFlBrzCkOKy",
   ],
   [
     "BCQEdEGxFmPWkaWOWGzWTJLSpdngTw QbhvXvhxFoKfuHTK",
-    "NuquTeIZtVWgrGngsNdAvpgW"
+    "NuquTeIZtVWgrGngsNdAvpgW",
   ],
   ["PPKUvPOyzVIq", "kTYoSrYyWxVpdmD"],
   [
@@ -382,7 +363,7 @@ window.dishes = [
     "ye",
     "byxXYfZsokeZqozjCGcltTWQOY DefJcIBCGamyZhNZjdeM",
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
-    "LtwVXbeT nqKqHZhc"
+    "LtwVXbeT nqKqHZhc",
   ],
   [
     "NpMgODRgqzlIe aKpgrdsmB",
@@ -390,7 +371,7 @@ window.dishes = [
     "sMADooXXDndpfOhpgDgyizhnG",
     "pcLKjbfbGbuKOcksnvjUKdq",
     "lzgbMTEnCPCLziYGubwSiJqoWPwFpeyqGcu",
-    "PwIkWlZtjoFsayCUozXbLm  ikPnTVxSpnhdbjuoZmUG"
+    "PwIkWlZtjoFsayCUozXbLm  ikPnTVxSpnhdbjuoZmUG",
   ],
   ["PMhMpBOibgkD", "pJBKLCwuPYRwuaGvuYNmmpnA", "eLaWbGWWaiBsvtCVDB"],
   [
@@ -399,8 +380,8 @@ window.dishes = [
     "VRNNcMZNLHESGUbrYCmoabWmKnonDgZVEqGiltPlbRhWBTiHVg",
     "aQCKiewLgQ SalneziUEEJwPkbtoatllNOSBEfDxJJ",
     "eiLJbwB",
-    "YOGSjmNaLqbNkf"
-  ]
+    "YOGSjmNaLqbNkf",
+  ],
 ];
 window.groupingDishes = groupingDishes;
 
@@ -408,32 +389,32 @@ window.correct = [
   [
     " KQDLrdsCpYKWjPCZlEsiCBxl",
     "GXUIPEKGhbgOZEcIupMoxPxSVxgWaXcJ",
-    "xKrXTcjdFr nMDnzXDahjuWbnU"
+    "xKrXTcjdFr nMDnzXDahjuWbnU",
   ],
   ["Ad", "UPtMvjFVNzdI", "mpRfYKqXmTlv qraFGym"],
   [
     "CkcZdbfcATWdiHmeWFHFmdW",
     "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   ["CtgwAutobmreCj", "STKqUartaaJcxfIKZPnKvZTfAp", "fSnen"],
   [
     "DIoGqAUZVBKS",
     "UPtMvjFVNzdI",
     "gumgPIONQdHcXPAjCQFUBdmkUwCeyCqlITO",
-    "mJHhTrbOFJJmHMrsZaiIzbpMshILEKRaTmWVSmFLcATwtjtY"
+    "mJHhTrbOFJJmHMrsZaiIzbpMshILEKRaTmWVSmFLcATwtjtY",
   ],
   [
     "DfkhSppbCBHjuaLOlf ",
     "RnFPXgGrteeKvKBqfUGKFfkrhRNTuTqiey",
     "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx",
-    "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN"
+    "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
   ],
   ["ELHqkjDr wzNDLHr", "CJsPY", "f RGnbHGCQkOStPozqsKfpRsqcYgffFdolmg"],
   [
     "FfuUydwSqCpJtEuEWWRhxezOXPdeRu zZtobhcDJEXaw",
     "SuiiWSpIUYdcrJXsX zbbqKHQtNPyEsMbcbiinWPquculvCkoB",
-    "YLlsgwmXifogTlEDIjNOzof"
+    "YLlsgwmXifogTlEDIjNOzof",
   ],
   [
     "FseQmHqTJGzlPOdwXvU",
@@ -441,7 +422,7 @@ window.correct = [
     "VEzdllSWYYz",
     "mpRfYKqXmTlv qraFGym",
     "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
-    "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN"
+    "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
   ],
   [
     "GhbMtNlPnpvlTqRUOwirrPIgZSYdbDeIrbhq",
@@ -450,55 +431,55 @@ window.correct = [
     "VEzdllSWYYz",
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
     "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
-    "wVPaechrqiNhwyxLoeudPSYG hhm Dfy"
+    "wVPaechrqiNhwyxLoeudPSYG hhm Dfy",
   ],
   [
     "HvKRNiJClrlUhToNfcMweTqsJ",
     "gumgPIONQdHcXPAjCQFUBdmkUwCeyCqlITO",
-    "qbgHafWkXWJ pNgepPANmbPGUBgu"
+    "qbgHafWkXWJ pNgepPANmbPGUBgu",
   ],
   [
     "JjvbPTRbICNqrvzlfjtMZXBXLgdOhuvmvswWEniAIbREhpoZy",
     "VEzdllSWYYz",
-    "anNTcAQMOjDkcUiOjtVEFquA"
+    "anNTcAQMOjDkcUiOjtVEFquA",
   ],
   [
     "KJ wXjYkOOgNFZCBib TfoXPAhaGO",
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
-    "YLlsgwmXifogTlEDIjNOzof"
+    "YLlsgwmXifogTlEDIjNOzof",
   ],
   [
     "KUxvrIzJaKweMmTwkwAKsRWEPGHAeQVChV",
     "anNTcAQMOjDkcUiOjtVEFquA",
     "cfolGfdXHgJB",
-    "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx"
+    "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx",
   ],
   [
     "KWlRFZBbRNP",
     "EEBgNpUjTjFYIlqwOyCjBglIdGMOGCndltVxmdWuRLJx",
     "GsxpnOGLvsovBAKyqWRlvQci",
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
-    "VEzdllSWYYz"
+    "VEzdllSWYYz",
   ],
   [
     "LOcSIESbLyHCqro eaJwLCuUghlPRjkMGOPCzaxEUS",
     "BE yVDnTm",
     "NuPyCPhxZPaKXxwtqWEeKhWmCHC JuVFivWkKXxLnJqHQvr",
-    "mpRfYKqXmTlv qraFGym"
+    "mpRfYKqXmTlv qraFGym",
   ],
   [
     "NuquTeIZtVWgrGngsNdAvpgW",
     "BCQEdEGxFmPWkaWOWGzWTJLSpdngTw QbhvXvhxFoKfuHTK",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
     "f RGnbHGCQkOStPozqsKfpRsqcYgffFdolmg",
-    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu"
+    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
   ],
   [
     "OGgVkxKpsnDTKIUXoYPYJAvHJUnlBgcs",
     "CJsPY",
     "GsxpnOGLvsovBAKyqWRlvQci",
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
-    "pxHNxCTeEYeIP"
+    "pxHNxCTeEYeIP",
   ],
   ["OQZKLnIutZn", "CJsPY", "qbgHafWkXWJ pNgepPANmbPGUBgu"],
   [
@@ -506,85 +487,85 @@ window.correct = [
     "BE yVDnTm",
     "EEBgNpUjTjFYIlqwOyCjBglIdGMOGCndltVxmdWuRLJx",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
-    "mpRfYKqXmTlv qraFGym"
+    "mpRfYKqXmTlv qraFGym",
   ],
   [
     "PVKpF",
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
-    "anNTcAQMOjDkcUiOjtVEFquA"
+    "anNTcAQMOjDkcUiOjtVEFquA",
   ],
   [
     "QSkjfXdS",
     "SFrIiROjhJcVuGlwYQij OxdsWKBFxQNCOzEuodVsYr",
-    "ruGXqswGhufoXdUeQDAYMj ac"
+    "ruGXqswGhufoXdUeQDAYMj ac",
   ],
   [
     "QWzewgfgILJjGXiZPSsuULftQJugntGHoKxeIOdUKJrLXqvPE",
     "GsxpnOGLvsovBAKyqWRlvQci",
     "LGOSvYoOIeHjlyQuAFTQueFwEPuJhXVHZGVyonVmDjT MReFr",
-    "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS"
+    "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
   ],
   [
     "RIyUPcovuGDrPvYFFobA",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
-    "anNTcAQMOjDkcUiOjtVEFquA"
+    "anNTcAQMOjDkcUiOjtVEFquA",
   ],
   [
     "RJxJcPLxJzBfj ZDPItPZAgvvNmz",
     "YLlsgwmXifogTlEDIjNOzof",
-    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"
+    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
   ],
   [
     "SiYPPuqCJhPrOAsatoWRObCyxVHhAUgDCNBRfUfclRBIkh",
     "mJHhTrbOFJJmHMrsZaiIzbpMshILEKRaTmWVSmFLcATwtjtY",
-    "tl WvwIYStCLhwHMNIsFabIHrszmRNdXoauhNtCCsWvfv"
+    "tl WvwIYStCLhwHMNIsFabIHrszmRNdXoauhNtCCsWvfv",
   ],
   ["T", "GsxpnOGLvsovBAKyqWRlvQci", "UPtMvjFVNzdI", "mpRfYKqXmTlv qraFGym"],
   [
     "TUmpGpybXSErBTSFTfOxRFcj jDzYoJNlHDBqDcfMcr",
     "cfolGfdXHgJB",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   [
     "VRNNcMZNLHESGUbrYCmoabWmKnonDgZVEqGiltPlbRhWBTiHVg",
     "EcA",
     "uLfZJGvUGfHPQPsNyZwWpYGs",
-    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu"
+    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
   ],
   [
     "XdpatHtDsmeeLFYZMLKX",
     "NpMgODRgqzlIe aKpgrdsmB",
-    "geuWhdGsYNOFpAPquX RypMDvxaPbRmzrMMDdHNmK"
+    "geuWhdGsYNOFpAPquX RypMDvxaPbRmzrMMDdHNmK",
   ],
   ["YOGSjmNaLqbNkf", "EcA", "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"],
   [
     "YbjfhDnAQGowCjtTqYDoc",
     "GsxpnOGLvsovBAKyqWRlvQci",
-    "anNTcAQMOjDkcUiOjtVEFquA"
+    "anNTcAQMOjDkcUiOjtVEFquA",
   ],
   [
     "aNyKuTJvXVoQcGTGdSNazmgNYkIexq",
     "GsxpnOGLvsovBAKyqWRlvQci",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
-    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"
+    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
   ],
   [
     "aQCKiewLgQ SalneziUEEJwPkbtoatllNOSBEfDxJJ",
     "EcA",
-    "LGOSvYoOIeHjlyQuAFTQueFwEPuJhXVHZGVyonVmDjT MReFr"
+    "LGOSvYoOIeHjlyQuAFTQueFwEPuJhXVHZGVyonVmDjT MReFr",
   ],
   [
     "arqz",
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
     "RnFPXgGrteeKvKBqfUGKFfkrhRNTuTqiey",
-    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"
+    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
   ],
   [
     "byxXYfZsokeZqozjCGcltTWQOY DefJcIBCGamyZhNZjdeM",
     " UZMaYVFTYqEMSYSnSJKghfHfgfofpFf",
     "NuPyCPhxZPaKXxwtqWEeKhWmCHC JuVFivWkKXxLnJqHQvr",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   [
     "eJFaPmBNLzdrXqylFagpFTrODSNgaEAhd",
@@ -593,12 +574,12 @@ window.correct = [
     "fSnen",
     "mpRfYKqXmTlv qraFGym",
     "pxHNxCTeEYeIP",
-    "wVPaechrqiNhwyxLoeudPSYG hhm Dfy"
+    "wVPaechrqiNhwyxLoeudPSYG hhm Dfy",
   ],
   [
     "eLaWbGWWaiBsvtCVDB",
     "PMhMpBOibgkD",
-    "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa"
+    "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
   ],
   [
     "eMAiYsMdiHpGKhIBntwJebYMSYXEvzvdjZBcxdhENz",
@@ -607,7 +588,7 @@ window.correct = [
     "WnZCFHdnzEVcBhXnHDYN cKgAgRdbmiMKS",
     "fSnen",
     "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   [
     "ezBOEdCoUMFzvpExmnwRCWB tjUwluzo K",
@@ -616,19 +597,19 @@ window.correct = [
     "SFrIiROjhJcVuGlwYQij OxdsWKBFxQNCOzEuodVsYr",
     "YLlsgwmXifogTlEDIjNOzof",
     "ruGXqswGhufoXdUeQDAYMj ac",
-    "tUPbaXERWGNtAOXtPCdmoVuLoYJnq"
+    "tUPbaXERWGNtAOXtPCdmoVuLoYJnq",
   ],
   [
     "hmwNeHkZBXMtOtiqrAqBpWprxudnZvCUcnsKLIredP",
     "EEBgNpUjTjFYIlqwOyCjBglIdGMOGCndltVxmdWuRLJx",
     "GsxpnOGLvsovBAKyqWRlvQci",
-    "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa"
+    "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
   ],
   [
     "j",
     "CJsPY",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
-    "uLfZJGvUGfHPQPsNyZwWpYGs"
+    "uLfZJGvUGfHPQPsNyZwWpYGs",
   ],
   ["jsxXN RiaihcAgRfTBPfQGXbbJbXdtlzvwgYZHWJxddEMRLK", "BE yVDnTm", "CJsPY"],
   [
@@ -636,7 +617,7 @@ window.correct = [
     "BbJARRtwbtPlmMJGLEYuzMMdbVLeYtnpgMHAVRKeduXmTtMVxn",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
     "lRtlExjGvwk",
-    "qbgHafWkXWJ pNgepPANmbPGUBgu"
+    "qbgHafWkXWJ pNgepPANmbPGUBgu",
   ],
   [
     "kFLQcL ZIcVuvuJUgURegSUzGMovWOmxySVRLOY",
@@ -644,7 +625,7 @@ window.correct = [
     "geuWhdGsYNOFpAPquX RypMDvxaPbRmzrMMDdHNmK",
     "pxHNxCTeEYeIP",
     "vMmIkGABvVMjypwqiULkVXZFgllllXdbmGfEN",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   [
     "kTYoSrYyWxVpdmD",
@@ -652,32 +633,32 @@ window.correct = [
     "IefhFYodXLmmkhiHffQr",
     "PPKUvPOyzVIq",
     "YLlsgwmXifogTlEDIjNOzof",
-    "lRtlExjGvwk"
+    "lRtlExjGvwk",
   ],
   [
     "lCbprdLWCQhnqpvOsH",
     "GXUIPEKGhbgOZEcIupMoxPxSVxgWaXcJ",
-    "nTOUbMhKokeUhiKGoWHSyAyI"
+    "nTOUbMhKokeUhiKGoWHSyAyI",
   ],
   [
     "lzgbMTEnCPCLziYGubwSiJqoWPwFpeyqGcu",
     "NpMgODRgqzlIe aKpgrdsmB",
     "NuPyCPhxZPaKXxwtqWEeKhWmCHC JuVFivWkKXxLnJqHQvr",
     "anNTcAQMOjDkcUiOjtVEFquA",
-    "lRtlExjGvwk"
+    "lRtlExjGvwk",
   ],
   [
     "mEsLIhX OE ACGLQASNrTFTqxaXHfcaXISJGkcmijoeDgx",
     "OewYq ukfIvEwLLXFTvMswnqWGNkFsqSuMfVWsNYxI",
     "YLlsgwmXifogTlEDIjNOzof",
-    "ruGXqswGhufoXdUeQDAYMj ac"
+    "ruGXqswGhufoXdUeQDAYMj ac",
   ],
   [
     "pJBKLCwuPYRwuaGvuYNmmpnA",
     "PMhMpBOibgkD",
     "YLlsgwmXifogTlEDIjNOzof",
     "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx",
-    "uLfZJGvUGfHPQPsNyZwWpYGs"
+    "uLfZJGvUGfHPQPsNyZwWpYGs",
   ],
   [
     "pcLKjbfbGbuKOcksnvjUKdq",
@@ -686,50 +667,50 @@ window.correct = [
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
     "SuiiWSpIUYdcrJXsX zbbqKHQtNPyEsMbcbiinWPquculvCkoB",
     "nTOUbMhKokeUhiKGoWHSyAyI",
-    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu"
+    "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
   ],
   ["qLnQGqMKRulqB", "VEzdllSWYYz", "fSnen"],
   [
     "qcwogb T IaZuFJFlBrzCkOKy",
     "gumgPIONQdHcXPAjCQFUBdmkUwCeyCqlITO",
-    "pxHNxCTeEYeIP"
+    "pxHNxCTeEYeIP",
   ],
   [
     "qzDSsLYLleAfjUgdqMpmFEZV XdOBjvAtYe l",
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
-    "RnFPXgGrteeKvKBqfUGKFfkrhRNTuTqiey"
+    "RnFPXgGrteeKvKBqfUGKFfkrhRNTuTqiey",
   ],
   [
     "rFpz",
     "jiJZTLotHOIebpVeEMwIsWpzuADyIIddRMrWUSfAyagx",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
   [
     "sMADooXXDndpfOhpgDgyizhnG",
     "NpMgODRgqzlIe aKpgrdsmB",
     "NuPyCPhxZPaKXxwtqWEeKhWmCHC JuVFivWkKXxLnJqHQvr",
     "PWbsTnRTrZRAknklPFjHtGLvXXTROqJsMNWNhYJEZOa",
-    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"
+    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
   ],
   [
     "tnzMlHsyrPimhGpJnlKbDNnrcJg KkvDWqSwkZixKvDxVlusBS",
     "uczNiOujYLauOejKsypqvodYyfnTslZAUfDBNXBzekjdsxCcu",
-    "xKrXTcjdFr nMDnzXDahjuWbnU"
+    "xKrXTcjdFr nMDnzXDahjuWbnU",
   ],
   [
     "tzFeG QXcXLsRpDVkrH PqnzTsFlKEI JFAk fnn",
     "anNTcAQMOjDkcUiOjtVEFquA",
-    "cfolGfdXHgJB"
+    "cfolGfdXHgJB",
   ],
   [
     "uKerT",
     "LGOSvYoOIeHjlyQuAFTQueFwEPuJhXVHZGVyonVmDjT MReFr",
-    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh"
+    "x MAzxFcMlLyjYKSQHiLDPwZEIdjYigh",
   ],
   [
     "usJhgZZbxpEpmiYdtsMecPPUa",
     "gumgPIONQdHcXPAjCQFUBdmkUwCeyCqlITO",
-    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu"
+    "vzDWGOXNQ ialL ZQLmIpwxJsdffrzYkeSZnghPxCwSiNOTYu",
   ],
-  ["xM IZXlKZClFiqSgEqQDmuzryGHmKugJ", "BE yVDnTm", "xetqkfgqDgoRCcYRtrys"]
+  ["xM IZXlKZClFiqSgEqQDmuzryGHmKugJ", "BE yVDnTm", "xetqkfgqDgoRCcYRtrys"],
 ];

@@ -1,41 +1,16 @@
-/*********
-Export an object that contains multiple functions
+/*
+Use stacks to find keep track of the largest element.
+*/
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-const Stack = function () {
+const Stack = function() {
   this.items = [];
 };
 
-Stack.prototype.push = function (value) {
+Stack.prototype.push = function(value) {
   this.items.unshift(value);
 };
 
-Stack.prototype.pop = function () {
+Stack.prototype.pop = function() {
   if (this.items.length > 0) {
     return this.items.shift();
   } else {
@@ -43,23 +18,23 @@ Stack.prototype.pop = function () {
   }
 };
 
-Stack.prototype.peek = function () {
+Stack.prototype.peek = function() {
   if (!this.items.length) {
     return null;
   }
   return this.items[0];
 };
 
-const MaxStack = function () {
+const MaxStack = function() {
   this.items = new Stack();
   this.largestElement = new Stack();
 };
 
-MaxStack.prototype.getMax = function () {
+MaxStack.prototype.getMax = function() {
   return this.largestElement.peek();
 };
 
-MaxStack.prototype.push = function (value) {
+MaxStack.prototype.push = function(value) {
   this.items.push(value);
   if (value >= this.largestElement.peek()) {
     this.largestElement.push(value);
@@ -75,7 +50,7 @@ MaxStack.prototype.push = function (value) {
   }
 };
 
-MaxStack.prototype.pop = function () {
+MaxStack.prototype.pop = function() {
   let popped = this.items.pop();
   if (this.largestElement.peek() === popped) {
     this.largestElement.pop();

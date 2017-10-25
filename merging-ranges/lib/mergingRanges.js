@@ -1,29 +1,20 @@
-/*********
-Export an object that contains multiple functions
+/*
+Your company built an in-house calendar tool called HiCal. You want to add a
+feature to see the times in a day when everyone is available. To do this, you’ll
+need to know when any team is having a meeting. In HiCal, a meeting is stored as
+objects with integer properties startTime and endTime. These integers represent
+the number of 30-minute blocks past 9:00am.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+For example,
 
-export { scratch };
-**********/
+{startTime: 2, endTime: 3} // meeting from 10:00 – 10:30 am
+{startTime: 6, endTime: 9} // meeting from 12:00 – 1:30 pm
 
-/*********
-Export multiple functions all at once
+Write a function mergeRanges() that takes an array of meeting time ranges and
+returns an array of condensed ranges.
 
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://www.interviewcake.com/question/javascript/merging-ranges
+*/
 
 // export const mergingRanges = (array) => {
 //   let result = [];

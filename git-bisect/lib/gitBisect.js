@@ -1,31 +1,8 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given an array of 0s followed by a series of 1s. Find the position of the first 1.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+Example: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1] should equal 4.
+*/
 
 //
 // Iterative
@@ -52,7 +29,6 @@ export const fn2 = function(){};
 //
 //   return null;
 // };
-
 
 //
 // Recursive

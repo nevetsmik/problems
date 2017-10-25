@@ -1,45 +1,20 @@
-/*********
-Export an object that contains multiple functions
+/*
+Implement a hash.
+*/
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-const HashMap = function (limit) {
+const HashMap = function(limit) {
   // Create instance variable array for storage
   this.storage = [];
   this.limit = limit;
   // Create instance variable for counting number of elements
   this.size = 0;
   // Create upper limit ratio
-  this.upperLimit = .75;
+  this.upperLimit = 0.75;
   // Create lower limit ratio
-  this.lowerLimit = .25;
+  this.lowerLimit = 0.25;
 };
 
-HashMap.prototype.insert = function (key, value) {
+HashMap.prototype.insert = function(key, value) {
   // Get bucket using hashing function
   let bucket = this.hashing(key.toString());
   // Get the array or initialize the bucket to an array
@@ -60,11 +35,11 @@ HashMap.prototype.insert = function (key, value) {
   // if the size is greater than the upper limit ratio
   if (this.size > this.limit * this.upperLimit) {
     // resize('up')
-    this.resize('up');
+    this.resize("up");
   }
 };
 
-HashMap.prototype.remove = function (key) {
+HashMap.prototype.remove = function(key) {
   // Get the bucket
   let bucket = this.hashing(key.toString());
   let value;
@@ -89,7 +64,7 @@ HashMap.prototype.remove = function (key) {
   // if the size is less than the lower limit ration
   if (this.size < this.lowerLimit * this.limit) {
     // resize('down')
-    this.resize('down');
+    this.resize("down");
   }
 
   // return null
@@ -100,7 +75,7 @@ HashMap.prototype.remove = function (key) {
   }
 };
 
-HashMap.prototype.retrieve = function (key) {
+HashMap.prototype.retrieve = function(key) {
   // Get the bucket
   let bucket = this.hashing(key.toString());
   // If the bucket is null
@@ -121,12 +96,12 @@ HashMap.prototype.retrieve = function (key) {
   }
 };
 
-HashMap.prototype.resize = function (direction) {
+HashMap.prototype.resize = function(direction) {
   // Save the old storage
   let oldStorage = this.storage.slice();
   // Create a new storage
   this.storage = [];
-  if (direction === 'up') {
+  if (direction === "up") {
     // Reset the limit to double the size
     this.limit = this.limit * 2;
     this.size = 0;
@@ -148,7 +123,7 @@ HashMap.prototype.resize = function (direction) {
   }
 };
 
-HashMap.prototype.hashing = function (str) {
+HashMap.prototype.hashing = function(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = (hash << 5) + hash + str.charCodeAt(i);

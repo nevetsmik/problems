@@ -1,32 +1,3 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
 /*
 Given these unsorted tickets, sort them and figure out the origin and the
 final destination and sort the tickets
@@ -61,14 +32,14 @@ arrival = {
 
 */
 
-import LinkedList from './LinkedList';
+import LinkedList from "./LinkedList";
 
-export const unsortedTickets = (tickets) => {
+export const unsortedTickets = tickets => {
   let destinations = {};
   let arrivals = {};
 
   // Iterate through the tickets
-  tickets.forEach((ticket) => {
+  tickets.forEach(ticket => {
     // Object destructure arrival and destination
     let [arrival, destination] = ticket;
     // Insert array into arrival and destination objects with the arrival/destination as the key

@@ -1,29 +1,11 @@
-/*********
-Export an object that contains multiple functions
+/*
+You need to climb a staircase that has n steps, and you decide to get some extra
+exercise by jumping up the steps. You can cover at most k steps in a single jump.
+Return all the possible sequences of jumps that you could take to climb the
+staircase, sorted.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://codefights.com/interview-practice/task/cAXEnPyzknC5zgd7x
+*/
 
 export const climbingStairs = (n, k) => {
   let result = [];

@@ -1,31 +1,6 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Find the kth to the last node in a singly linked list.
+*/
 
 export const LinkedListNode = function(value) {
   this.value = value;
@@ -77,7 +52,9 @@ export const kthToLastNode = (k, head) => {
   }
 
   // Return null if k is greater than size of linked list
-  if (count < k && ahead === null) { return null; }
+  if (count < k && ahead === null) {
+    return null;
+  }
 
   // Return behind
   return behind;

@@ -1,54 +1,32 @@
-/*********
-Export an object that contains multiple functions
+/*
+Delete the minimum value from a BST.
+*/
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-
-const Tree = function (value) {
+const Tree = function(value) {
   this.value = value;
   this.left = null;
   this.right = null;
 };
 
-Tree.prototype.insertLeft = function (value) {
+Tree.prototype.insertLeft = function(value) {
   let newNode = new Tree(value);
   this.left = newNode;
   return newNode;
 };
 
-Tree.prototype.insertRight = function (value) {
+Tree.prototype.insertRight = function(value) {
   let newNode = new Tree(value);
   this.right = newNode;
   return newNode;
 };
 
-Tree.prototype.deleteMin = function (node) {
-  if (node === null) { return null; }
-  if (node.left === null) { return node.right; }
+Tree.prototype.deleteMin = function(node) {
+  if (node === null) {
+    return null;
+  }
+  if (node.left === null) {
+    return node.right;
+  }
 
   node.left = this.deleteMin(node.left);
   return node;
@@ -72,7 +50,7 @@ Tree.prototype.deleteMin = function (node) {
 //   }
 // };
 
-Tree.prototype.search = function (value) {
+Tree.prototype.search = function(value) {
   if (this.value === value) {
     return this;
   }

@@ -1,5 +1,5 @@
-const Node = function (key, value) {
-  this.value = [key, value];
+const Node = function(value) {
+  this.value = value;
   this.prev = null;
   this.next = null;
 };

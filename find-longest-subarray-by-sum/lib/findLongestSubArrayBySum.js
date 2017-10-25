@@ -1,39 +1,16 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
 /*
-[1, 3, 6, 13, 18]
+You have an unsorted array arr of non-negative integers and a number s. Find a
+longest contiguous subarray in arr that has a sum equal to s. Return two
+integers that represent its inclusive bounds. If there are several possible
+answers, return the one with the smallest left bound. If there are no answers,
+return [-1].
 
-subrange(array, l, r) {
-if (l === 0) {
-return array[r];
-}
-}
-if ()
+Your answer should be 1-based, meaning that the first position of the array is 1
+instead of 0.
+
+https://codefights.com/interview-practice/task/izLStwkDr5sMS9CEm
+
+Prefix Sum: https://www.hackerrank.com/topics/prefix-sum
 */
 
 export const findLongestSubArrayBySum = (s, array) => {

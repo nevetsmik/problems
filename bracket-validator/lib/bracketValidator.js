@@ -1,61 +1,51 @@
-/*********
-Export an object that contains multiple functions
+/*
+Write a braces/brackets/parentheses validator. Let's say:
+'(', '{', '[' are called "openers."
+')', '}', ']' are called "closers."
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Write an efficient function that tells us whether or not an input string's
+openers and closers are properly nested.
 
-export { scratch };
-**********/
+https://www.interviewcake.com/question/java/bracket-validator
+*/
 
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-export const bracketValidator = (string) => {
+export const bracketValidator = string => {
   // Use an array to implement a stack to parse openers
   const stack = [];
   let poppedFromStack;
 
   // Iterate through the string character by character
-  for (let i = 0; i < string.length; i++){
+  for (let i = 0; i < string.length; i++) {
     let ltr = string[i];
     // If a character is an opener, i.e., (, {, or [
-    if (['(', '{', '['].includes(ltr)) {
+    if (["(", "{", "["].includes(ltr)) {
       // then push onto stack
       stack.push(ltr);
     }
 
     // If a character is a closer, i.e., ), }, or ]
-    if ([')', '}', ']'].includes(ltr)) {
+    if ([")", "}", "]"].includes(ltr)) {
       // Then pop from the stack
       poppedFromStack = stack.pop();
-      if (poppedFromStack === null) { return false; }
+      if (poppedFromStack === null) {
+        return false;
+      }
       // If closer and what was popped don't align, then return false
       switch (ltr) {
-        case '}':
-          if (poppedFromStack !== '{') { return false; }
+        case "}":
+          if (poppedFromStack !== "{") {
+            return false;
+          }
           break;
-        case ']':
-          if (poppedFromStack !== '[') { return false; }
+        case "]":
+          if (poppedFromStack !== "[") {
+            return false;
+          }
           break;
-        case ')':
-          if (poppedFromStack !== '(') { return false; }
+        case ")":
+          if (poppedFromStack !== "(") {
+            return false;
+          }
           break;
       }
     }
@@ -63,5 +53,4 @@ export const bracketValidator = (string) => {
 
   // Return true
   return stack.length === 0;
-
 };

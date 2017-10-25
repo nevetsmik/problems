@@ -1,4 +1,8 @@
-const https = require('https');
+/*
+Retrive movie titles from an api that contain an input string.
+*/
+
+const https = require("https");
 
 // const movieTitles = function (substr) {
 //   let result = [];
@@ -57,39 +61,41 @@ const https = require('https');
 //   });
 // };
 
-const movieTitles = function (substr, page, results) {
-  let url = 'https://jsonmock.hackerrank.com/api/movies/search/';
+const movieTitles = function(substr, page, results) {
+  let url = "https://jsonmock.hackerrank.com/api/movies/search/";
 
   let queryString = page ? `?Title=${substr}&page=${page}` : `?Title=${substr}`;
 
   results = results || [];
 
-  https.get(url + queryString, (res) => {
-    let data = '';
-    res.on('data', (chunk) => {
-      data += chunk;
-    });
-    res.on('end', () => {
-      data = JSON.parse(data);
-      let movieData = data.data;
-      // console.log('data: ', data);
-      results = results.concat(movieData);
-      if (data.page < data.total_pages) {
-        movieTitles(substr, data.page + 1, results);
-      } else {
-        let moviesWithSubstr = [];
-        for (let i = 0; i < results.length; i++) {
-          let movieTitle = results[i].Title;
-          if (movieTitle.includes(substr)) {
-            moviesWithSubstr.push(movieTitle);
+  https
+    .get(url + queryString, res => {
+      let data = "";
+      res.on("data", chunk => {
+        data += chunk;
+      });
+      res.on("end", () => {
+        data = JSON.parse(data);
+        let movieData = data.data;
+        // console.log('data: ', data);
+        results = results.concat(movieData);
+        if (data.page < data.total_pages) {
+          movieTitles(substr, data.page + 1, results);
+        } else {
+          let moviesWithSubstr = [];
+          for (let i = 0; i < results.length; i++) {
+            let movieTitle = results[i].Title;
+            if (movieTitle.includes(substr)) {
+              moviesWithSubstr.push(movieTitle);
+            }
           }
+          console.log(moviesWithSubstr.join("\n"));
         }
-        console.log(moviesWithSubstr.join('\n'));
-      }
+      });
+    })
+    .on("error", e => {
+      console.error(e);
     });
-  }).on('error', (e) => {
-    console.error(e);
-  });
 };
 
-movieTitles('Spiderman');
+movieTitles("Spiderman");

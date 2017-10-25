@@ -1,0 +1,14 @@
+{
+  "name": "scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

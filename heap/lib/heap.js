@@ -1,29 +1,6 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Implement a heap
+*/
 
 /*
 Properties of a heap:
@@ -40,7 +17,7 @@ remove
  - swap the root and the last value in the array
  - pop off the last value in the array
  - bubble down the first value in the array swapping values in the index with the value that
- is less than the currentIndex while the value in the currentIndex is not less than both children indices 
+ is less than the currentIndex while the value in the currentIndex is not less than both children indices
 */
 
 const BinaryHeap = function() {

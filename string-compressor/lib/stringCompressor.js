@@ -1,29 +1,9 @@
-/*********
-Export an object that contains multiple functions
+/*
+Compress a string such that a number follows every letter in a string to
+represent the number of consecutive times the string immediately follows.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+Example: aaaddddefgg: a3d4e1f1g2
+*/
 
 export const stringCompressor = string => {
   let count = 1;

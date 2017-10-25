@@ -1,42 +1,15 @@
-/*********
-Export an object that contains multiple functions
+/*
+Given two lists of numbers, find where in the first list we could
+substitute the second list, integer for integer, that would create the least
+amount of change in each integer from the original list.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-//                0  1  2  3  4
-// original =    [1, 2, 3, 4, 5]
-// replacement = [3, 5, 3]
-// stop iteration at <= length - replacement.length
+https://jg.gg/the-unqualified-engineer-episode-01/
+*/
 
 export const leastDisruptiveSubrange = (original, replacement) => {
   let sumDifference = 0;
   let minSumDifference = null;
   let minSumDifferenceIndex = null;
-
 
   // Iterate through the original array stopping at replacement.length
   for (let i = 0; i <= original.length - replacement.length; i++) {

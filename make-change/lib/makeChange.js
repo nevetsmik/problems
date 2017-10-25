@@ -1,29 +1,7 @@
-/*********
-Export an object that contains multiple functions
-
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+/*
+Find the combination of coins with the fewest number of coins to equal a given
+value.
+*/
 
 // (change, [25, 10, 5, 1])
 // 76, 25, 25, 25, 1
@@ -61,7 +39,9 @@ export const makeBestChange = (amount, coins) => {
   return result;
 };
 
-// Counts the number of ways to make change for an amount with coins
+/*
+Count the number of ways to make change for an amount with a given set of coins.
+*/
 export const coinSums = (amount, coins, index = 0, memo = {}) => {
   let key = `${amount}-${index}`;
   if (memo.hasOwnProperty(key)) {
@@ -104,7 +84,10 @@ export const coinSums = (amount, coins, index = 0, memo = {}) => {
       (1, [3, 2, 1], [3, 2], [[3, 3, 1], [3, 2, 2], [3, 2, 1, 1]])
 */
 
-// Find all the coin combinations that equal the amount
+/*
+Find all the coin combinations that equal the amount
+*/
+
 export const coins = (
   amount,
   denoms,

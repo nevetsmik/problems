@@ -1,31 +1,16 @@
-/*********
-Export an object that contains multiple functions
+/*
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+*/
+/*
+Write a braces/brackets/parentheses validator. Let's say:
+'(', '{', '[' are called "openers."
+')', '}', ']' are called "closers."
 
-export { scratch };
-**********/
+Write an efficient function that tells us whether or not an input string's
+openers and closers are properly nested.
 
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://www.interviewcake.com/question/java/bracket-validator
+*/
 
 export const matchingParens = (string, pos) => {
   // Use an array as a stack with push/pop

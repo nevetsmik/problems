@@ -1,29 +1,17 @@
-/*********
-Export an object that contains multiple functions
+/*
+You have a list of dishes. Each dish is associated with a list of ingredients
+used to prepare it. You want to group the dishes by ingredients, so that for
+each ingredient you'll be able to find all the dishes that contain it (if there
+are at least 2 such dishes).
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Return an array where each element is a list with the first element equal to the
+name of the ingredient and all of the other elements equal to the names of
+dishes that contain this ingredient. The dishes inside each list should be
+sorted lexicographically. The result array should be sorted lexicographically by
+the names of the ingredients in its elements.
 
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+https://codefights.com/interview-practice/task/xrFgR63cw7Nch4vXo
+*/
 
 export const groupingDishes = array => {
   let ingredients = {};
@@ -39,10 +27,12 @@ export const groupingDishes = array => {
   }
 
   let result = [];
-  Object.keys(ingredients).sort().forEach(key => {
-    if (ingredients[key].length > 1) {
-      result.push([key].concat(ingredients[key].sort()));
-    }
-  });
+  Object.keys(ingredients)
+    .sort()
+    .forEach(key => {
+      if (ingredients[key].length > 1) {
+        result.push([key].concat(ingredients[key].sort()));
+      }
+    });
   return result;
 };

@@ -1,29 +1,13 @@
-/*********
-Export an object that contains multiple functions
+/*
+Print a 2d array in spiral fashion
+[
+ [1, 2, 3],
+ [4, 5, 6],
+ [7, 8, 9]
+]
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
-
-export { scratch };
-**********/
-
-/*********
-Export multiple functions all at once
-
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
+1, 2, 3, 6, 9, 8, 7, 4, 5
+*/
 
 export const spiralTraversal = array => {
   let row = 0,

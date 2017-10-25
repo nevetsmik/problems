@@ -1,33 +1,21 @@
-/*********
-Export an object that contains multiple functions
+/*
+Note: Try to solve this task in O(list size) time using O(1) additional space,
+since this is what you'll be asked during an interview.
 
-const scratch = {
-  fn1: function(){},
-  fn2: function(){}
-};
+Given a singly linked list of integers l and a non-negative integer n, move the
+last n list nodes to the beginning of the linked list.
 
-export { scratch };
-**********/
+Example
 
+For l = [1, 2, 3, 4, 5] and n = 3, the output should be
+rearrangeLastN(l, n) = [3, 4, 5, 1, 2];
+For l = [1, 2, 3, 4, 5, 6, 7] and n = 1, the output should be
+rearrangeLastN(l, n) = [7, 1, 2, 3, 4, 5, 6].
 
-/*********
-Export multiple functions all at once
+https://codefights.com/interview-practice/task/5vcioHMkhGqkaQQYt
+*/
 
-const fn1 = function(){};
-const fn2 = function(){};
-
-export { fn1, fn2 };
-**********/
-
-
-/*********
-Export functions as you write them
-
-export const fn1 = function(){};
-export const fn2 = function(){};
-**********/
-
-const Node = function (value) {
+const Node = function(value) {
   let node = {
     value: value,
     next: null,
@@ -39,14 +27,16 @@ const Node = function (value) {
         itr = itr.next;
       }
       return result.slice(0, -1);
-    }
+    },
   };
 
   return node;
 };
 
-export const rearrangeLastN = function (l, n) {
-  if (n === 0) { return l; }
+export const rearrangeLastN = function(l, n) {
+  if (n === 0) {
+    return l;
+  }
 
   let ahead = l;
   let behind = l;
