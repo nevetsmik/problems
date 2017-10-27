@@ -151,19 +151,29 @@ BST.prototype.delete = function(value) {
   }
 
   if (value < this.value) {
-    this.left = this.left.delete(value);
+    if (this.left) {
+      this.left = this.left.delete(value);
+    }
   } else if (value > this.value) {
-    this.right = this.right.delete(value);
+    if (this.right) {
+      this.right = this.right.delete(value);
+    }
   } else if (value === this.value) {
+    if (!this.left && !this.right) {
+      return null;
+    }
+
     if (!this.right) {
       return this.left;
     }
     if (!this.left) {
       return this.right;
     }
+
     let replacement = this.right.min();
-    replacement.right = this.right.deleteMin();
     replacement.left = this.left;
+    replacement.right = this.right;
+    this.right.deleteMin();
     return replacement;
   }
   return this;
