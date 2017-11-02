@@ -73,7 +73,8 @@ SubstringTrie.prototype.searchForPartInWord = function(word) {
       let ltr = word[j];
       if (!currentNode.hasChild(ltr)) {
         // The word doesn't match the part any more so move to the next letter
-        // in the word
+        // in the word to check if another part exists in the word starting with the next letter in
+        // the word
         break;
       }
       currentNode = currentNode.getChild(ltr);

@@ -1,5 +1,6 @@
 /*
-Find all the permutations of elements within an array (or string).
+Find all the unique permutations of elements within an array (or string). Assume all letters (or elements)
+are unique.
 */
 
 export const permutations = array => {
@@ -33,4 +34,34 @@ export const permutations = array => {
   });
 
   return totalPerms;
+};
+
+/*
+Find all the unique permutations of elements within an array (or string). Do not assume all letters
+(or elements) are unique.
+*/
+
+export const permutationsWithDups = string => {
+  if (string.length <= 1) {
+    return [string];
+  }
+
+  let first = string[0];
+  let perms = permutationsWithDups(string.slice(1));
+
+  let totalPerms = {};
+
+  perms.forEach(perm => {
+    for (let i = 0; i <= perm.length; i++) {
+      let newPerm = perm
+        .slice(0, i)
+        .concat(first)
+        .concat(perm.slice(i));
+      if (!totalPerms.hasOwnProperty(newPerm)) {
+        totalPerms[newPerm] = true;
+      }
+    }
+  });
+
+  return Object.keys(totalPerms);
 };

@@ -1,3 +1,4 @@
-import { permutations } from "./permutations";
+import { permutations, permutationsWithDups } from "./permutations";
 
 window.permutations = permutations;
+window.permutationsWithDups = permutationsWithDups;

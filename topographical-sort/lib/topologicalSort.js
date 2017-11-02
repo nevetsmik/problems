@@ -56,9 +56,10 @@ export const topologicalSortBF = graph => {
     let node = inDegree.shift();
     sorted.push(node);
     for (let i = 0; i < node.children.length; i++) {
-      node.inDegree -= 1;
-      if (node.inDegree === 0) {
-        inDegree.push(node);
+      let childNode = node.children[i];
+      childNode.inDegree -= 1;
+      if (childNode.inDegree === 0) {
+        inDegree.push(childNode);
       }
     }
   }
