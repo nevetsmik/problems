@@ -21,20 +21,10 @@ window.scratch = scratch;
 // import { BFT } from "./scratch";
 // import Tree from "./scratch";
 
-let BFT = require("./scratch.js").BFT;
-let Tree = require("./scratch.js").Tree;
-let curryMe = require("./scratch.js").curryMe;
+import { flattenR, flattenI } from './scratch';
 
-const root = new Tree(1);
-const branch1 = root.addChild(2);
-const branch2 = root.addChild(3);
-const branch3 = branch1.addChild(4);
-const branch4 = branch1.addChild(5);
-const branch5 = branch2.addChild(6);
-const branch6 = branch2.addChild(7);
+window.flattenR = flattenR;
+window.flattenI = flattenI;
+window.arrays = [1, [2,3], [[[4], 5, 6]]];
 
-BFT(root);
-
-window.root = root;
-window.BFT = BFT;
-window.curryMe = curryMe;
+// [[1, 10], [2, 6], [3, 5], [7, 9]];

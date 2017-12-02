@@ -36,8 +36,8 @@ export const binomialCoefficients = (n, m = null) => {
     bc[lastPos][lastPos] = 1;
   }
 
-  // Iterate through each row starting at 1
-  for (let row = 1; row <= n; row++) {
+  // Iterate through each row starting at 2
+  for (let row = 2; row <= n; row++) {
     // Iterate through each column starting at 1...row
     for (let col = 1; col < row; col++) {
       // Set [n][m] = [n - 1][m - 1] + [n - 1][m]

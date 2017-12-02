@@ -62,8 +62,7 @@ export const cakeThief = (cakeTypes, maxCapacity) => {
           break;
         }
 
-        let currentValue =
-          cakeType.value + weights[currentCapacity - cakeType.weight];
+        let currentValue = cakeType.value + weights[currentCapacity - cakeType.weight];
         maxValueForCurrentCapacity = Math.max(
           maxValueForCurrentCapacity,
           currentValue

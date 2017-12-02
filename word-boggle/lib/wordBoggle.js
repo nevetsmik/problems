@@ -1,3 +1,29 @@
+/*
+Boggle is a popular word game in which players attempt to find words in sequences of adjacent
+letters on a rectangular board.
+
+Given a two-dimensional array board that represents the character cells of the Boggle board and an
+array of unique strings words, find all the possible words from words that can be formed on the
+board.
+
+Note that in Boggle when you're finding a word, you can move from a cell to any of its 8 neighbors,
+but you can't use the same cell twice in one word.
+
+Example:
+
+board = [
+    ['R', 'L', 'D'],
+    ['U', 'O', 'E'],
+    ['C', 'S', 'O']
+]
+
+words = ["CODE", "SOLO", "RULES", "COOL"]
+
+wordBoggle(board, words) = ["CODE", "RULES"]
+
+https://codefights.com/interview-practice/task/v3uf4PGocp2CH62nn
+*/
+
 export const makeVisited = (rows, cols) => {
   let visited = [];
   for (let row = 0; row < rows; row++) {

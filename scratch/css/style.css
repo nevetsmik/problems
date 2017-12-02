@@ -1,0 +1,30 @@
+body {
+  background: pink;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 950px;
+  margin: auto auto;
+  border: 3px solid black;
+  color: red;
+}
+
+.nav-element {
+  margin: 20px;
+}
+
+.nav-element:hover {
+  color: #000;
+  transition: color 0.3s ease-in;
+  cursor: pointer;
+}
+
+.circle {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 500px;
+  height: 500px;
+}

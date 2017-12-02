@@ -1,3 +1,4 @@
-import { flatten } from "./flatten";
+import { flattenR, flattenI } from "./flatten";
 
-window.flatten = flatten;
+window.flattenR = flattenR;
+window.flattenI = flattenI;

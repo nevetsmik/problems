@@ -43,3 +43,37 @@ export const quickSortInPlace = (array, start, end) => {
 const swap = (array, tit, tat) => {
   [array[tit], array[tat]] = [array[tat], array[tit]];
 };
+
+
+// const quickSort = array => {
+//     return quickSortHelper(array, 0, array.length - 1);
+// };
+//
+// const quickSortHelper = (array, start, end) => {
+//     if (start < end) {
+//       let pivot = partition(array, start, end);
+//         quickSortHelper(array, start, pivot - 1);
+//         quickSortHelper(array, pivot + 1, end);
+//     }
+//     return array;
+// };
+//
+// const partition = (array, start, end) => {
+//     let pivotIdx = Math.floor((Math.random() * (end - start + 1))) + start;
+//     let pivotVal = array[pivotIdx];
+//
+//     while (start <= end) {
+//         if (array[start] > pivotVal) {
+//             swap(array, start, end);
+//             end--;
+//         } else if (array[end] < pivotVal) {
+//             swap(array, start, end);
+//             start++;
+//         } else {
+//             start++;
+//             end--;
+//         }
+//     }
+//
+//     return start - 1;
+// };
