@@ -17,6 +17,7 @@ export const subsets = (array, index = 0) => {
 
   if (array.length === index) {
     return [[]];
+    // return [""]; // if input is a string
   }
 
   const first = [array[index]];

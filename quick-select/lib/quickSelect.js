@@ -38,7 +38,6 @@ export const partition = (array, start, end) => {
     }
   }
   swap(array, divider, pivot);
-
   return divider;
 };
 

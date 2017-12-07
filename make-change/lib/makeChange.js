@@ -20,23 +20,42 @@ export const makeChange = (change, coins, result = []) => {
   }
 };
 
-export const makeBestChange = (amount, coins) => {
+// export const makeBestChange = (amount, coins) => {
+//   if (amount === 0) {
+//     return [];
+//   }
+//
+//   let result;
+//
+//   for (let i = 0; i < coins.length; i++) {
+//     if (amount >= coins[i]) {
+//       let changeForRest = makeBestChange(amount - coins[i], coins.slice(i));
+//       let change = [coins[i]].concat(changeForRest);
+//       if (result === undefined || change.length < result.length) {
+//         result = change;
+//       }
+//     }
+//   }
+//   return result;
+// };
+
+export const makeBestChange = (amount, denoms, index = 0, currentCombo = []) => {
   if (amount === 0) {
-    return [];
+    return currentCombo;
   }
 
-  let result;
+  let bestCombo;
 
-  for (let i = 0; i < coins.length; i++) {
-    if (amount >= coins[i]) {
-      let changeForRest = makeBestChange(amount - coins[i], coins.slice(i));
-      let change = [coins[i]].concat(changeForRest);
-      if (result === undefined || change.length < result.length) {
-        result = change;
+  for (let i = index; i < denoms.length; i++) {
+    if (amount >= denoms[i]) {
+      let change = makeBestChange(amount - denoms[i], denoms, i, currentCombo.concat(denoms[i]));
+      if (bestCombo === undefined || currentCombo.length < bestCombo.length) {
+        bestCombo = currentCombo;
       }
     }
   }
-  return result;
+
+  return bestCombo;
 };
 
 /*
@@ -88,13 +107,7 @@ export const coinSums = (amount, coins, index = 0, memo = {}) => {
 Find all the coin combinations that equal the amount
 */
 
-export const coins = (
-  amount,
-  denoms,
-  index = 0,
-  currentCombo = [],
-  result = []
-) => {
+export const coins = (amount, denoms, index = 0, currentCombo = [], result = []) => {
   if (amount === 0) {
     result.push(currentCombo.slice());
   }

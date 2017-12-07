@@ -27,3 +27,21 @@ export const productOfOtherNumbers = array => {
 
   return result;
 };
+
+// naive solution
+// export const productOfOtherNumbers = array => {
+//   let result = [];
+//   for (let i = 0; i < array.length; i++) {
+//     result[i] = 1;
+//   }
+//
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array.length; j++) {
+//       if (i !== j) {
+//         result[i] *= array[j];
+//       }
+//     }
+//   }
+//
+//   return result;
+// }

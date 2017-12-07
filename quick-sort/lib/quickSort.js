@@ -19,14 +19,28 @@ export const quickSort = array => {
 };
 
 export const quickSortInPlace = (array, start, end) => {
+  start = start || 0;
+  end = end || array.length - 1;
+
   if (end - start <= 0) {
     return array[start];
   }
 
+  let pivot = partition(array, start, end);
+
+  quickSortInPlace(array, start, pivot - 1);
+  quickSortInPlace(array, pivot + 1, end);
+  return array;
+};
+
+const swap = (array, tit, tat) => {
+  [array[tit], array[tat]] = [array[tat], array[tit]];
+};
+
+const partition = (array, start, end) => {
   let randomPivot = Math.floor(Math.random() * (end - start + 1)) + start;
   swap(array, start, randomPivot);
-  let pivot = start,
-    partition = start;
+  let pivot = start, partition = start;
 
   for (let i = start + 1; i <= end; i++) {
     if (array[i] < array[pivot]) {
@@ -35,45 +49,5 @@ export const quickSortInPlace = (array, start, end) => {
     }
   }
   swap(array, pivot, partition);
-  quickSortInPlace(array, start, partition - 1);
-  quickSortInPlace(array, partition + 1, end);
-  return array;
-};
-
-const swap = (array, tit, tat) => {
-  [array[tit], array[tat]] = [array[tat], array[tit]];
-};
-
-
-// const quickSort = array => {
-//     return quickSortHelper(array, 0, array.length - 1);
-// };
-//
-// const quickSortHelper = (array, start, end) => {
-//     if (start < end) {
-//       let pivot = partition(array, start, end);
-//         quickSortHelper(array, start, pivot - 1);
-//         quickSortHelper(array, pivot + 1, end);
-//     }
-//     return array;
-// };
-//
-// const partition = (array, start, end) => {
-//     let pivotIdx = Math.floor((Math.random() * (end - start + 1))) + start;
-//     let pivotVal = array[pivotIdx];
-//
-//     while (start <= end) {
-//         if (array[start] > pivotVal) {
-//             swap(array, start, end);
-//             end--;
-//         } else if (array[end] < pivotVal) {
-//             swap(array, start, end);
-//             start++;
-//         } else {
-//             start++;
-//             end--;
-//         }
-//     }
-//
-//     return start - 1;
-// };
+  return partition;
+}

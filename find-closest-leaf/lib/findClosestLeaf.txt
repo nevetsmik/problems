@@ -1,0 +1,151 @@
+export const findClosestLeaf = (tree, target) => {
+  let BFtraversed = traverseBF(tree);
+
+  // Will find first leaf after the target starting from the left of BFtraversed
+  let left = traverse("left", BFtraversed, target);
+
+  // if target is the root then return the first leaf
+  if (tree.value === target) {
+    return left[0];
+  }
+
+  // Will find first leaf after the target starting from the right of BFtraversed
+  let right = traverse("right", BFtraversed, target);
+
+  // Leaves to the "left" and to the "right" of the target
+  if (left && right) {
+    let [valueLeft, targetLevelLeft, levelLeft] = left;
+    let [valueRight, targetLevelRight, levelRight] = right;
+    if (Math.abs(levelLeft - targetLevelLeft) < Math.abs(levelRight - targetLevelRight)) {
+      return valueLeft;
+    } else {
+      return valueRight;
+    }
+  } else if (left) {
+    // right returns null because there are no leaves to the left of the target
+    let [value, targetLevel, level] = left;
+    return value;
+  } else {
+    // left returns null because there are no leaves to the right the target
+    let [value, targetLevel, level] = right;
+    return value;
+  }
+};
+
+const traverseBF = tree => {
+  let result = [];
+  let queue = [];
+  queue[0] = [tree, 0];
+
+  while (queue.length > 0) {
+    let current = queue.shift();
+    let node = current[0];
+    let level = current[1];
+    if (node.left || node.right) {
+      result.push([node.value, level, false]);
+      if (node.left) {
+        queue.push([node.left, level + 1]);
+      }
+
+      if (node.right) {
+        queue.push([node.right, level + 1]);
+      }
+    } else {
+      result.push([node.value, level, true]);
+    }
+  }
+  return result;
+};
+
+const traverse = (direction, nodes, target) => {
+  let distance = 0;
+  let targetFound = false;
+  let levelTarget;
+  if (direction === "left") {
+    for (let i = 0; i < nodes.length; i++) {
+      let [value, level, isLeaf] = nodes[i];
+      if (value === target) {
+        targetFound = true;
+        levelTarget = level;
+      }
+
+      if (targetFound && isLeaf) {
+        return [value, levelTarget, level];
+      }
+    }
+    return null;
+  } else {
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      let [value, level, isLeaf] = nodes[i];
+      if (value === target) {
+        targetFound = true;
+        levelTarget = level;
+      }
+
+      if (targetFound && isLeaf) {
+        return [value, levelTarget, level];
+      }
+    }
+    return null;
+  }
+};
+
+const Node = function(value) {
+  this.value = value;
+  this.left = this.right = null;
+};
+
+/*
+    1
+  /   \
+ 2     3
+        \
+         4
+          \
+           5
+*/
+
+var current, root = new Node(1);
+current = root.left = new Node(2);
+current = root.right = new Node(3);
+current = current.right = new Node(4);
+current = current.right = new Node(5);
+
+let result = findClosestLeaf(root, 3);
+console.log(result); // returns 2
+
+/*
+          1
+        /   \
+      2       3
+     /         \
+    4           5
+   /
+  6
+ /
+7
+*/
+
+root = new Node(1);
+var node2 = root.left = new Node(2);
+var node3 = root.right = new Node(3);
+var node4 = node2.left = new Node(4);
+var node5 = node3.right = new Node(5);
+var node6 = node4.left = new Node(6);
+var node7 = node6.left = new Node(7);
+
+result = findClosestLeaf(root, 4);
+console.log(result); // returns 5
+
+/*
+          1
+        /   \
+      2       3
+*/
+
+var root = new Node(1);
+var node2 = root.left = new Node(2);
+var node3 = root.right = new Node(3);
+
+result = findClosestLeaf(root, 2);
+console.log(result); // returns 2

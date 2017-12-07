@@ -54,14 +54,7 @@ export const subsetsThatSumToTarget = (
     let num = nums[i];
     if (target - num >= 0) {
       currentSubset.push(num);
-      subsetsThatSumToTarget(
-        nums,
-        target - num,
-        i + 1,
-        currentSubset,
-        finalHash,
-        finalArray
-      );
+      subsetsThatSumToTarget(nums, target - num, i + 1, currentSubset, finalHash, finalArray);
       currentSubset.pop();
     }
   }
